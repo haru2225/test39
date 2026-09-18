@@ -250,11 +250,19 @@ class InitialEmbedding(nn.Module):
 def architecture(num_species, cutoff):
     # モデルの構造(irreps=e3nnの回転等変な特徴量の型、畳み込み層の数など)を
     # 1つの辞書にまとめたもの。チェックポイントに保存しておき、生成時に
-    # 同じ構造のモデルを再構築するために使う。test37と同じ構造。
+    # 同じ構造のモデルを再構築するために使う。
+    #
+    # irreps_hidden/num_convsは元は test37 と同じ("64x0e + 32x1e", 3層)だった。
+    # これはtest38の「参照構造にわずかなノイズを加えたところから戻す」局所
+    # デノイザー用の規模で、test39が要求する「セル内で完全にランダムな配置
+    # から周期的な結晶格子を再構築する」というはるかに難しい生成タスクには
+    # 小さすぎると判断し、モデルクラス(NequIP)自体は変えずに容量だけを
+    # 増やした。NequIPには明示的な3体項(結合角)がなく、角度的な相関は層を
+    # 重ねるほど間接的に獲得されるため、層を増やすこと自体にも意味がある。
     return dict(num_species=num_species, cutoff_angstrom=cutoff,
                 irreps_node_x="8x0e", irreps_node_z="8x0e",
-                irreps_hidden="64x0e + 32x1e", irreps_edge="4x0e + 4x1e + 2x2e",
-                irreps_out="1x1e", num_convs=3, radial_neurons=[16, 64], num_neighbors=12)
+                irreps_hidden="128x0e + 64x1e + 32x2e", irreps_edge="4x0e + 4x1e + 2x2e",
+                irreps_out="1x1e", num_convs=5, radial_neurons=[16, 64], num_neighbors=12)
 
 
 def graph(positions, cell, type_ids, cutoff, device):
