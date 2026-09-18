@@ -25,6 +25,7 @@ from pathlib import Path
 import ase.io
 import numpy as np
 import torch
+from ase.neighborlist import primitive_neighbor_list
 
 import test38 as base
 
@@ -105,6 +106,26 @@ def cell_lengths(cell):
     return np.diag(cell)
 
 
+def estimate_num_neighbors(positions, cell, type_ids, cutoff):
+    """Mean neighbor count within `cutoff` for one frame, used to calibrate the
+    NequIP interaction layer's normalization constant to this dataset's actual
+    site density (architecture()'s hardcoded default of 12 was tuned for a much
+    denser, oxygen-containing CG mapping and can be far off for a sparser one)."""
+    data = base.graph(positions, cell, type_ids, cutoff, torch.device("cpu"))
+    return float(data.edge_index.shape[1]) / data.num_nodes
+
+
+def estimate_sigma_data(positions, cell, cutoff=10.0):
+    """Median nearest-neighbor distance for one frame, used as the natural
+    length scale to center a log-normal training sigma distribution on."""
+    i, _, d = primitive_neighbor_list("ijd", [True] * 3, cell, positions, cutoff=cutoff)
+    if not len(i):
+        raise ValueError("No neighbors within cutoff; cannot estimate a data length scale")
+    nearest = np.full(len(positions), np.inf)
+    np.minimum.at(nearest, i, d)
+    return float(np.median(nearest[np.isfinite(nearest)]))
+
+
 def wrapped_score_target(noisy, clean, lengths, sigma):
     """Return -sigma * grad log p_sigma(noisy | clean) for Brownian motion on a torus.
 
@@ -135,6 +156,12 @@ def wrapped_score_target(noisy, clean, lengths, sigma):
     return result
 
 
+def num_neighbors_value(value):
+    if value == "auto":
+        return value
+    return base.positive(value)
+
+
 def schedule(sigma_min, sigma_max, steps, device):
     levels = torch.exp(torch.linspace(math.log(sigma_max), math.log(sigma_min), steps,
                                       device=device, dtype=torch.float64))
@@ -154,11 +181,21 @@ def write_xyz(output, trajectory, valid, cell, meta):
     temporary.replace(path)
 
 
-def settings_for(args, meta, lengths, sigma_max):
-    return dict(dataset_sha256=meta["sha256"], sigma_min=args.sigma_min,
+def settings_for(args, meta, lengths, sigma_max, num_neighbors=None, sigma_log=None):
+    settings = dict(dataset_sha256=meta["sha256"], sigma_min=args.sigma_min,
                 sigma_max=sigma_max, cutoff=args.cutoff, batch_size=args.batch_size,
                 learning_rate=args.learning_rate, seed=args.seed, device=str(args.device),
                 cell_lengths_A=np.asarray(lengths).tolist())
+    # Only recorded when explicitly requested, so a checkpoint trained before
+    # these options existed (default --num-neighbors/--sigma-sampling) resumes
+    # against an identical settings dict -- adding these keys unconditionally
+    # would break --resume for any already-running job.
+    if num_neighbors is not None:
+        settings["num_neighbors"] = num_neighbors
+    if sigma_log is not None:
+        settings["sigma_sampling"] = "log-normal"
+        settings["sigma_log_mean"], settings["sigma_log_std"] = sigma_log
+    return settings
 
 
 def train(args):
@@ -182,11 +219,24 @@ def train(args):
     output = args.output.resolve() if args.resume else base.new_output(args.output)
     path = output / "checkpoint.pt"
     config = base.architecture(len(meta["species"]), args.cutoff)
+    num_neighbors_override = None
+    if args.num_neighbors is not None:
+        if args.num_neighbors == "auto":
+            num_neighbors_override = estimate_num_neighbors(
+                positions[0], cells[0], meta["type_ids"], args.cutoff)
+        else:
+            num_neighbors_override = float(args.num_neighbors)
+        config["num_neighbors"] = num_neighbors_override
+    sigma_log = None
+    if args.sigma_sampling == "log-normal":
+        log_mean = (math.log(estimate_sigma_data(positions[0], cells[0], args.cutoff))
+                    if args.sigma_log_mean is None else math.log(args.sigma_log_mean))
+        sigma_log = (log_mean, args.sigma_log_std)
     torch.manual_seed(args.seed)
     np.random.seed(args.seed)
     model = base.build_time_model(config, device)
     optimizer = torch.optim.AdamW(model.parameters(), lr=args.learning_rate)
-    settings = settings_for(args, meta, lengths, sigma_max)
+    settings = settings_for(args, meta, lengths, sigma_max, num_neighbors_override, sigma_log)
     completed, history = 0, []
     if args.resume:
         ck = torch.load(path, map_location="cpu", weights_only=False)
@@ -229,14 +279,27 @@ def train(args):
 
     print(f"test39 train: frames={len(positions)}, sites={len(meta['type_ids'])}, "
           f"sigma={args.sigma_min:g}..{sigma_max:g} A, "
-          f"terminal Fourier residual={residual:.2g}", flush=True)
+          f"terminal Fourier residual={residual:.2g}, "
+          f"num_neighbors={config['num_neighbors']:g}, "
+          f"sigma_sampling={args.sigma_sampling}" +
+          (f" (log-mean={sigma_log[0]:.3g}, log-std={sigma_log[1]:.3g})" if sigma_log else ""),
+          flush=True)
+    validation_indices = list(range(split, min(split + args.validation_frames, len(positions))))
     for step in range(completed + 1, args.updates + 1):
         if base.STOP or time.monotonic() >= deadline:
             save()
             print("Training paused; resume with --resume", flush=True)
             return 75
-        # Log-uniform sigma gives meaningful coverage across small and large scales.
-        sigma = math.exp(np.random.uniform(math.log(args.sigma_min), math.log(sigma_max)))
+        if sigma_log is not None:
+            # Log-normal, centered on this dataset's own nearest-neighbor scale:
+            # spends most updates where the score actually has structure to learn,
+            # instead of spreading them uniformly across three decades of sigma.
+            log_sigma = float(np.clip(np.random.normal(*sigma_log),
+                                      math.log(args.sigma_min), math.log(sigma_max)))
+            sigma = math.exp(log_sigma)
+        else:
+            # Log-uniform sigma gives even coverage across small and large scales.
+            sigma = math.exp(np.random.uniform(math.log(args.sigma_min), math.log(sigma_max)))
         indices = np.random.randint(split, size=args.batch_size)
         model.train()
         optimizer.zero_grad(set_to_none=True)
@@ -254,7 +317,9 @@ def train(args):
                 for label, s in (("small", args.sigma_min * 4),
                                  ("middle", math.sqrt(args.sigma_min * sigma_max)),
                                  ("terminal", sigma_max)):
-                    diagnostics[label] = float(loss_for([split], min(s, sigma_max)).item())
+                    # Averaged over several held-out frames so a single-frame
+                    # fluke doesn't read as a real change in model quality.
+                    diagnostics[label] = float(loss_for(validation_indices, min(s, sigma_max)).item())
             base.restore_rng(saved_rng)
             row = dict(step=step, train_mse=float(loss.detach().cpu()),
                        sigma_A=sigma, validation_mse=diagnostics)
@@ -370,6 +435,30 @@ def parser():
     train_p.add_argument("--sigma-max", type=base.positive, default=None,
                          help="Default: longest cell edge; must yield a near-uniform terminal state")
     train_p.add_argument("--log-every", type=base.count, default=100)
+    train_p.add_argument("--num-neighbors", type=num_neighbors_value, default=None,
+                         help="Override architecture()'s hardcoded 12 (tuned for a denser, "
+                              "oxygen-containing CG mapping); pass 'auto' to estimate the mean "
+                              "neighbor count within --cutoff from the dataset's first frame, "
+                              "or a numeric value directly. Default: keep the old 12 (unchanged, "
+                              "so this does not affect resuming an existing checkpoint)")
+    train_p.add_argument("--sigma-sampling", choices=("log-uniform", "log-normal"), default="log-uniform",
+                         help="log-uniform (default, unchanged) spreads training sigma evenly "
+                              "across sigma-min..sigma-max in log space. log-normal instead "
+                              "concentrates updates near --sigma-log-mean (default: this "
+                              "dataset's own median nearest-neighbor distance), which is where "
+                              "the score actually has learnable structure -- sigma-max itself "
+                              "still needs to stay large enough for a uniform terminal state; "
+                              "only how densely intermediate sigmas are sampled changes")
+    train_p.add_argument("--sigma-log-mean", type=base.positive, default=None,
+                         help="log-normal sigma sampling only: center of the sigma distribution "
+                              "in angstrom. Default: estimated median nearest-neighbor distance")
+    train_p.add_argument("--sigma-log-std", type=base.positive, default=1.2,
+                         help="log-normal sigma sampling only: spread in natural-log space "
+                              "(EDM-style default of 1.2 reaches roughly a factor of 25 either "
+                              "side of --sigma-log-mean before clipping to [sigma-min, sigma-max])")
+    train_p.add_argument("--validation-frames", type=base.count, default=8,
+                         help="Held-out frames averaged into each logged validation_mse "
+                              "(small/middle/terminal), to smooth out single-frame noise")
     train_p.set_defaults(handler=train)
     gen_p = sub.add_parser("generate")
     gen_p.add_argument("--checkpoint", type=Path, required=True)

@@ -52,6 +52,14 @@ case "$stage" in
               --sigma-min "${SIGMA_MIN:-0.05}" --cutoff "${CUTOFF:-10.0}"
               --learning-rate "${LEARNING_RATE:-0.0002}" --log-every "${LOG_EVERY:-100}")
         if [[ -n "${SIGMA_MAX:-}" ]]; then args+=(--sigma-max "$SIGMA_MAX"); fi
+        # All four are opt-in and default to test39.py's own unchanged defaults
+        # (12 fixed neighbors, log-uniform sigma, 8 validation frames), so an
+        # existing --resume run is unaffected unless these are set explicitly.
+        if [[ -n "${NUM_NEIGHBORS:-}" ]]; then args+=(--num-neighbors "$NUM_NEIGHBORS"); fi
+        if [[ -n "${SIGMA_SAMPLING:-}" ]]; then args+=(--sigma-sampling "$SIGMA_SAMPLING"); fi
+        if [[ -n "${SIGMA_LOG_MEAN:-}" ]]; then args+=(--sigma-log-mean "$SIGMA_LOG_MEAN"); fi
+        if [[ -n "${SIGMA_LOG_STD:-}" ]]; then args+=(--sigma-log-std "$SIGMA_LOG_STD"); fi
+        if [[ -n "${VALIDATION_FRAMES:-}" ]]; then args+=(--validation-frames "$VALIDATION_FRAMES"); fi
         ;;
     generate)
         checkpoint="${CHECKPOINT_PATH:-$train_dir/checkpoint.pt}"
