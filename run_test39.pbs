@@ -1,0 +1,76 @@
+#!/usr/bin/env bash
+#PBS -q sg8
+#PBS -N test39_clay
+#PBS -l walltime=20:00:00
+#PBS -l select=1:ncpus=8:mpiprocs=1:ompthreads=8:mem=32gb:ngpus=1
+#PBS -j oe
+set -euo pipefail
+
+cd "${PBS_O_WORKDIR:-$(dirname "${BASH_SOURCE[0]}")}"
+work_dir="$(pwd -P)"
+runtime="${CONTAINER_RUNTIME:-singularity}"
+if ! command -v "$runtime" >/dev/null 2>&1 && command -v apptainer >/dev/null 2>&1; then
+    runtime=apptainer
+fi
+command -v "$runtime" >/dev/null 2>&1 || { echo 'Load Singularity or Apptainer.' >&2; exit 2; }
+sif="${SIF_IMAGE:-$work_dir/test39.sif}"
+[[ -r "$sif" ]] || { echo "Build the image first: $runtime build --fakeroot test39.sif Singularity.test39.def" >&2; exit 2; }
+
+bind_args=(--bind "$work_dir:$work_dir")
+if [[ -n "${EXTRA_BIND:-}" ]]; then bind_args+=(--bind "$EXTRA_BIND"); fi
+stage="${STAGE:-train}"
+case "${CG_MODE:-cations}" in
+    cations) cg_remove=(ob obos oh ohs ho); result_root="$work_dir/results/test39-cations" ;;
+    oxygen-only) cg_remove=(ob obos oh ohs); result_root="$work_dir/results/test39-oxygen-only" ;;
+    none) cg_remove=(); result_root="$work_dir/results/test39" ;;
+    *) echo 'CG_MODE must be cations, oxygen-only or none.' >&2; exit 2 ;;
+esac
+train_dir="${TRAIN_DIR:-$result_root/train}"
+case "$stage" in
+    train)
+        dataset="${DATASET_PATH:-$work_dir/input/test36-dataset}"
+        # GitHub stores positions.npy as two files because the reconstructed
+        # 148 MiB NumPy file exceeds GitHub's regular-file limit.
+        if [[ -r "$dataset/positions.npy.part00" && -r "$dataset/positions.npy.part01" ]]; then
+            part_bytes=$(( $(wc -c < "$dataset/positions.npy.part00") + $(wc -c < "$dataset/positions.npy.part01") ))
+            if [[ ! -r "$dataset/positions.npy" || $(wc -c < "$dataset/positions.npy") -ne "$part_bytes" ]]; then
+                cat "$dataset/positions.npy.part00" "$dataset/positions.npy.part01" > "$dataset/positions.npy"
+            fi
+        fi
+        for name in metadata.json positions.npy cells.npy; do
+            [[ -r "$dataset/$name" ]] || { echo "Missing $dataset/$name" >&2; exit 2; }
+        done
+        if [[ ${#cg_remove[@]} -gt 0 ]]; then
+            cg_dataset="${CG_DATASET_PATH:-$work_dir/input/test39-${CG_MODE:-cations}}"
+            "$runtime" exec "${bind_args[@]}" --pwd "$work_dir" "$sif" \
+                python -u "$work_dir/test39.py" coarse-grain --dataset "$dataset" \
+                --output "$cg_dataset" --remove-species "${cg_remove[@]}" --reuse
+            dataset="$cg_dataset"
+        fi
+        args=(train --dataset "$dataset" --output "$train_dir"
+              --updates "${UPDATES:-30000}" --batch-size "${BATCH_SIZE:-2}"
+              --sigma-min "${SIGMA_MIN:-0.05}" --cutoff "${CUTOFF:-10.0}"
+              --learning-rate "${LEARNING_RATE:-0.0002}" --log-every "${LOG_EVERY:-100}")
+        if [[ -n "${SIGMA_MAX:-}" ]]; then args+=(--sigma-max "$SIGMA_MAX"); fi
+        ;;
+    generate)
+        checkpoint="${CHECKPOINT_PATH:-$train_dir/checkpoint.pt}"
+        [[ -r "$checkpoint" ]] || { echo "Missing test39 checkpoint: $checkpoint" >&2; exit 2; }
+        args=(generate --checkpoint "$checkpoint"
+              --output "${GENERATED_DIR:-$result_root/generated}"
+              --reverse-steps "${REVERSE_STEPS:-300}"
+              --deterministic-steps "${DETERMINISTIC_STEPS:-1}")
+        ;;
+    *) echo 'STAGE must be train or generate.' >&2; exit 2 ;;
+esac
+args+=(--device cuda --seed "${SEED:-1337}"
+       --checkpoint-every "${CHECKPOINT_EVERY:-25}"
+       --time-budget-hours "${TIME_BUDGET_HOURS:-19.5}")
+case "${RESUME:-0}" in
+    0) ;;
+    1) args+=(--resume) ;;
+    *) echo 'RESUME must be 0 or 1.' >&2; exit 2 ;;
+esac
+exec "$runtime" exec --nv "${bind_args[@]}" \
+    --env OMP_NUM_THREADS=8 --env MKL_NUM_THREADS=8 --pwd "$work_dir" \
+    "$sif" python -u "$work_dir/test39.py" "${args[@]}"

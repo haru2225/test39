@@ -1,0 +1,9205 @@
+{
+  "format": "test36-clay-cg-denoiser-v1",
+  "length_unit": "angstrom",
+  "frames": 10000,
+  "species": [
+    {
+      "name": "Ca",
+      "atomic_number": 20,
+      "mass_amu": 40.078
+    },
+    {
+      "name": "Na",
+      "atomic_number": 11,
+      "mass_amu": 22.99
+    },
+    {
+      "name": "ao",
+      "atomic_number": 13,
+      "mass_amu": 26.98
+    },
+    {
+      "name": "ho",
+      "atomic_number": 1,
+      "mass_amu": 1.008
+    },
+    {
+      "name": "mgo",
+      "atomic_number": 12,
+      "mass_amu": 24.31
+    },
+    {
+      "name": "ob",
+      "atomic_number": 8,
+      "mass_amu": 16.0
+    },
+    {
+      "name": "obos",
+      "atomic_number": 8,
+      "mass_amu": 16.0
+    },
+    {
+      "name": "oh",
+      "atomic_number": 8,
+      "mass_amu": 16.0
+    },
+    {
+      "name": "ohs",
+      "atomic_number": 8,
+      "mass_amu": 16.0
+    },
+    {
+      "name": "st",
+      "atomic_number": 14,
+      "mass_amu": 28.09
+    }
+  ],
+  "type_ids": [
+    6,
+    5,
+    5,
+    5,
+    6,
+    6,
+    5,
+    6,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    9,
+    9,
+    9,
+    9,
+    9,
+    9,
+    9,
+    9,
+    3,
+    3,
+    3,
+    3,
+    7,
+    7,
+    8,
+    8,
+    2,
+    2,
+    4,
+    2,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    9,
+    9,
+    9,
+    9,
+    9,
+    9,
+    9,
+    9,
+    3,
+    3,
+    3,
+    3,
+    7,
+    7,
+    7,
+    7,
+    2,
+    2,
+    2,
+    2,
+    6,
+    5,
+    5,
+    5,
+    6,
+    6,
+    5,
+    6,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    9,
+    9,
+    9,
+    9,
+    9,
+    9,
+    9,
+    9,
+    3,
+    3,
+    3,
+    3,
+    7,
+    7,
+    8,
+    8,
+    2,
+    2,
+    4,
+    2,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    9,
+    9,
+    9,
+    9,
+    9,
+    9,
+    9,
+    9,
+    3,
+    3,
+    3,
+    3,
+    7,
+    7,
+    7,
+    7,
+    2,
+    2,
+    2,
+    2,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    9,
+    9,
+    9,
+    9,
+    9,
+    9,
+    9,
+    9,
+    3,
+    3,
+    3,
+    3,
+    7,
+    7,
+    7,
+    7,
+    2,
+    2,
+    2,
+    2,
+    5,
+    6,
+    6,
+    6,
+    5,
+    5,
+    6,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    9,
+    9,
+    9,
+    9,
+    9,
+    9,
+    9,
+    9,
+    3,
+    3,
+    3,
+    3,
+    8,
+    8,
+    7,
+    7,
+    2,
+    4,
+    2,
+    2,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    9,
+    9,
+    9,
+    9,
+    9,
+    9,
+    9,
+    9,
+    3,
+    3,
+    3,
+    3,
+    7,
+    7,
+    7,
+    7,
+    2,
+    2,
+    2,
+    2,
+    5,
+    6,
+    6,
+    6,
+    5,
+    5,
+    6,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    9,
+    9,
+    9,
+    9,
+    9,
+    9,
+    9,
+    9,
+    3,
+    3,
+    3,
+    3,
+    8,
+    8,
+    7,
+    7,
+    2,
+    4,
+    2,
+    2,
+    6,
+    5,
+    5,
+    5,
+    6,
+    6,
+    5,
+    6,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    9,
+    9,
+    9,
+    9,
+    9,
+    9,
+    9,
+    9,
+    3,
+    3,
+    3,
+    3,
+    7,
+    7,
+    8,
+    8,
+    2,
+    2,
+    4,
+    2,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    9,
+    9,
+    9,
+    9,
+    9,
+    9,
+    9,
+    9,
+    3,
+    3,
+    3,
+    3,
+    7,
+    7,
+    7,
+    7,
+    2,
+    2,
+    2,
+    2,
+    6,
+    5,
+    5,
+    5,
+    6,
+    6,
+    5,
+    6,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    9,
+    9,
+    9,
+    9,
+    9,
+    9,
+    9,
+    9,
+    3,
+    3,
+    3,
+    3,
+    7,
+    7,
+    8,
+    8,
+    2,
+    2,
+    4,
+    2,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    9,
+    9,
+    9,
+    9,
+    9,
+    9,
+    9,
+    9,
+    3,
+    3,
+    3,
+    3,
+    7,
+    7,
+    7,
+    7,
+    2,
+    2,
+    2,
+    2,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    9,
+    9,
+    9,
+    9,
+    9,
+    9,
+    9,
+    9,
+    3,
+    3,
+    3,
+    3,
+    7,
+    7,
+    7,
+    7,
+    2,
+    2,
+    2,
+    2,
+    5,
+    6,
+    6,
+    6,
+    5,
+    5,
+    6,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    9,
+    9,
+    9,
+    9,
+    9,
+    9,
+    9,
+    9,
+    3,
+    3,
+    3,
+    3,
+    8,
+    8,
+    7,
+    7,
+    2,
+    4,
+    2,
+    2,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    9,
+    9,
+    9,
+    9,
+    9,
+    9,
+    9,
+    9,
+    3,
+    3,
+    3,
+    3,
+    7,
+    7,
+    7,
+    7,
+    2,
+    2,
+    2,
+    2,
+    5,
+    6,
+    6,
+    6,
+    5,
+    5,
+    6,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    9,
+    9,
+    9,
+    9,
+    9,
+    9,
+    9,
+    9,
+    3,
+    3,
+    3,
+    3,
+    8,
+    8,
+    7,
+    7,
+    2,
+    4,
+    2,
+    2,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    9,
+    9,
+    9,
+    9,
+    9,
+    9,
+    9,
+    9,
+    3,
+    3,
+    3,
+    3,
+    7,
+    7,
+    7,
+    7,
+    2,
+    2,
+    2,
+    2,
+    5,
+    6,
+    6,
+    6,
+    5,
+    5,
+    6,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    9,
+    9,
+    9,
+    9,
+    9,
+    9,
+    9,
+    9,
+    3,
+    3,
+    3,
+    3,
+    8,
+    8,
+    7,
+    7,
+    2,
+    4,
+    2,
+    2,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    9,
+    9,
+    9,
+    9,
+    9,
+    9,
+    9,
+    9,
+    3,
+    3,
+    3,
+    3,
+    7,
+    7,
+    7,
+    7,
+    2,
+    2,
+    2,
+    2,
+    5,
+    6,
+    6,
+    6,
+    5,
+    5,
+    6,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    9,
+    9,
+    9,
+    9,
+    9,
+    9,
+    9,
+    9,
+    3,
+    3,
+    3,
+    3,
+    8,
+    8,
+    7,
+    7,
+    2,
+    4,
+    2,
+    2,
+    6,
+    5,
+    5,
+    5,
+    6,
+    6,
+    5,
+    6,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    9,
+    9,
+    9,
+    9,
+    9,
+    9,
+    9,
+    9,
+    3,
+    3,
+    3,
+    3,
+    7,
+    7,
+    8,
+    8,
+    2,
+    2,
+    4,
+    2,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    9,
+    9,
+    9,
+    9,
+    9,
+    9,
+    9,
+    9,
+    3,
+    3,
+    3,
+    3,
+    7,
+    7,
+    7,
+    7,
+    2,
+    2,
+    2,
+    2,
+    6,
+    5,
+    5,
+    5,
+    6,
+    6,
+    5,
+    6,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    9,
+    9,
+    9,
+    9,
+    9,
+    9,
+    9,
+    9,
+    3,
+    3,
+    3,
+    3,
+    7,
+    7,
+    8,
+    8,
+    2,
+    2,
+    4,
+    2,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    9,
+    9,
+    9,
+    9,
+    9,
+    9,
+    9,
+    9,
+    3,
+    3,
+    3,
+    3,
+    7,
+    7,
+    7,
+    7,
+    2,
+    2,
+    2,
+    2,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    9,
+    9,
+    9,
+    9,
+    9,
+    9,
+    9,
+    9,
+    3,
+    3,
+    3,
+    3,
+    7,
+    7,
+    7,
+    7,
+    2,
+    2,
+    2,
+    2,
+    5,
+    6,
+    6,
+    6,
+    5,
+    5,
+    6,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    9,
+    9,
+    9,
+    9,
+    9,
+    9,
+    9,
+    9,
+    3,
+    3,
+    3,
+    3,
+    8,
+    8,
+    7,
+    7,
+    2,
+    4,
+    2,
+    2,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    9,
+    9,
+    9,
+    9,
+    9,
+    9,
+    9,
+    9,
+    3,
+    3,
+    3,
+    3,
+    7,
+    7,
+    7,
+    7,
+    2,
+    2,
+    2,
+    2,
+    5,
+    6,
+    6,
+    6,
+    5,
+    5,
+    6,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    9,
+    9,
+    9,
+    9,
+    9,
+    9,
+    9,
+    9,
+    3,
+    3,
+    3,
+    3,
+    8,
+    8,
+    7,
+    7,
+    2,
+    4,
+    2,
+    2,
+    6,
+    5,
+    5,
+    5,
+    6,
+    6,
+    5,
+    6,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    9,
+    9,
+    9,
+    9,
+    9,
+    9,
+    9,
+    9,
+    3,
+    3,
+    3,
+    3,
+    7,
+    7,
+    8,
+    8,
+    2,
+    2,
+    4,
+    2,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    9,
+    9,
+    9,
+    9,
+    9,
+    9,
+    9,
+    9,
+    3,
+    3,
+    3,
+    3,
+    7,
+    7,
+    7,
+    7,
+    2,
+    2,
+    2,
+    2,
+    6,
+    5,
+    5,
+    5,
+    6,
+    6,
+    5,
+    6,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    9,
+    9,
+    9,
+    9,
+    9,
+    9,
+    9,
+    9,
+    3,
+    3,
+    3,
+    3,
+    7,
+    7,
+    8,
+    8,
+    2,
+    2,
+    4,
+    2,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    9,
+    9,
+    9,
+    9,
+    9,
+    9,
+    9,
+    9,
+    3,
+    3,
+    3,
+    3,
+    7,
+    7,
+    7,
+    7,
+    2,
+    2,
+    2,
+    2,
+    1,
+    1,
+    1,
+    1,
+    0,
+    0,
+    1,
+    1,
+    1,
+    1,
+    0,
+    0
+  ],
+  "condition": {
+    "temperature_k": 300.0,
+    "clay_type": "idealized cis-montmorillonite",
+    "layer_charge_e_per_Si8O20_OH4": -0.5,
+    "basal_spacing_angstrom": 15.5,
+    "water_model": "rigid SPC",
+    "waters_per_unit_cell": 12,
+    "sodium_count": 8,
+    "calcium_count": 4,
+    "sodium_charge_fraction": 0.5,
+    "added_salt_molar": 0.0,
+    "ensemble": "NVT",
+    "layers": 2,
+    "lateral_repeats": [
+      4,
+      4
+    ]
+  },
+  "mapping": {
+    "source_is_equilibrium": false,
+    "condition": {
+      "temperature_k": 300.0,
+      "clay_type": "idealized cis-montmorillonite",
+      "layer_charge_e_per_Si8O20_OH4": -0.5,
+      "basal_spacing_angstrom": 15.5,
+      "water_model": "rigid SPC",
+      "waters_per_unit_cell": 12,
+      "sodium_count": 8,
+      "calcium_count": 4,
+      "sodium_charge_fraction": 0.5,
+      "added_salt_molar": 0.0,
+      "ensemble": "NVT",
+      "layers": 2,
+      "lateral_repeats": [
+        4,
+        4
+      ]
+    },
+    "description": "Remove SPC water only; all clay atoms including hydroxyl H and counterions retained. Pilot, not proven equilibrium.",
+    "species": [
+      {
+        "name": "Ca",
+        "atomic_number": 20,
+        "mass_amu": 40.078
+      },
+      {
+        "name": "Na",
+        "atomic_number": 11,
+        "mass_amu": 22.99
+      },
+      {
+        "name": "ao",
+        "atomic_number": 13,
+        "mass_amu": 26.98
+      },
+      {
+        "name": "ho",
+        "atomic_number": 1,
+        "mass_amu": 1.008
+      },
+      {
+        "name": "mgo",
+        "atomic_number": 12,
+        "mass_amu": 24.31
+      },
+      {
+        "name": "ob",
+        "atomic_number": 8,
+        "mass_amu": 16.0
+      },
+      {
+        "name": "obos",
+        "atomic_number": 8,
+        "mass_amu": 16.0
+      },
+      {
+        "name": "oh",
+        "atomic_number": 8,
+        "mass_amu": 16.0
+      },
+      {
+        "name": "ohs",
+        "atomic_number": 8,
+        "mass_amu": 16.0
+      },
+      {
+        "name": "st",
+        "atomic_number": 14,
+        "mass_amu": 28.09
+      }
+    ],
+    "sites": [
+      {
+        "species": "obos",
+        "indices": [
+          0
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          1
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          2
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          3
+        ]
+      },
+      {
+        "species": "obos",
+        "indices": [
+          4
+        ]
+      },
+      {
+        "species": "obos",
+        "indices": [
+          5
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          6
+        ]
+      },
+      {
+        "species": "obos",
+        "indices": [
+          7
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          8
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          9
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          10
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          11
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          12
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          13
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          14
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          15
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          16
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          17
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          18
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          19
+        ]
+      },
+      {
+        "species": "st",
+        "indices": [
+          20
+        ]
+      },
+      {
+        "species": "st",
+        "indices": [
+          21
+        ]
+      },
+      {
+        "species": "st",
+        "indices": [
+          22
+        ]
+      },
+      {
+        "species": "st",
+        "indices": [
+          23
+        ]
+      },
+      {
+        "species": "st",
+        "indices": [
+          24
+        ]
+      },
+      {
+        "species": "st",
+        "indices": [
+          25
+        ]
+      },
+      {
+        "species": "st",
+        "indices": [
+          26
+        ]
+      },
+      {
+        "species": "st",
+        "indices": [
+          27
+        ]
+      },
+      {
+        "species": "ho",
+        "indices": [
+          28
+        ]
+      },
+      {
+        "species": "ho",
+        "indices": [
+          29
+        ]
+      },
+      {
+        "species": "ho",
+        "indices": [
+          30
+        ]
+      },
+      {
+        "species": "ho",
+        "indices": [
+          31
+        ]
+      },
+      {
+        "species": "oh",
+        "indices": [
+          32
+        ]
+      },
+      {
+        "species": "oh",
+        "indices": [
+          33
+        ]
+      },
+      {
+        "species": "ohs",
+        "indices": [
+          34
+        ]
+      },
+      {
+        "species": "ohs",
+        "indices": [
+          35
+        ]
+      },
+      {
+        "species": "ao",
+        "indices": [
+          36
+        ]
+      },
+      {
+        "species": "ao",
+        "indices": [
+          37
+        ]
+      },
+      {
+        "species": "mgo",
+        "indices": [
+          38
+        ]
+      },
+      {
+        "species": "ao",
+        "indices": [
+          39
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          40
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          41
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          42
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          43
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          44
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          45
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          46
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          47
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          48
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          49
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          50
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          51
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          52
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          53
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          54
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          55
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          56
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          57
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          58
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          59
+        ]
+      },
+      {
+        "species": "st",
+        "indices": [
+          60
+        ]
+      },
+      {
+        "species": "st",
+        "indices": [
+          61
+        ]
+      },
+      {
+        "species": "st",
+        "indices": [
+          62
+        ]
+      },
+      {
+        "species": "st",
+        "indices": [
+          63
+        ]
+      },
+      {
+        "species": "st",
+        "indices": [
+          64
+        ]
+      },
+      {
+        "species": "st",
+        "indices": [
+          65
+        ]
+      },
+      {
+        "species": "st",
+        "indices": [
+          66
+        ]
+      },
+      {
+        "species": "st",
+        "indices": [
+          67
+        ]
+      },
+      {
+        "species": "ho",
+        "indices": [
+          68
+        ]
+      },
+      {
+        "species": "ho",
+        "indices": [
+          69
+        ]
+      },
+      {
+        "species": "ho",
+        "indices": [
+          70
+        ]
+      },
+      {
+        "species": "ho",
+        "indices": [
+          71
+        ]
+      },
+      {
+        "species": "oh",
+        "indices": [
+          72
+        ]
+      },
+      {
+        "species": "oh",
+        "indices": [
+          73
+        ]
+      },
+      {
+        "species": "oh",
+        "indices": [
+          74
+        ]
+      },
+      {
+        "species": "oh",
+        "indices": [
+          75
+        ]
+      },
+      {
+        "species": "ao",
+        "indices": [
+          76
+        ]
+      },
+      {
+        "species": "ao",
+        "indices": [
+          77
+        ]
+      },
+      {
+        "species": "ao",
+        "indices": [
+          78
+        ]
+      },
+      {
+        "species": "ao",
+        "indices": [
+          79
+        ]
+      },
+      {
+        "species": "obos",
+        "indices": [
+          80
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          81
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          82
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          83
+        ]
+      },
+      {
+        "species": "obos",
+        "indices": [
+          84
+        ]
+      },
+      {
+        "species": "obos",
+        "indices": [
+          85
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          86
+        ]
+      },
+      {
+        "species": "obos",
+        "indices": [
+          87
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          88
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          89
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          90
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          91
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          92
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          93
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          94
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          95
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          96
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          97
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          98
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          99
+        ]
+      },
+      {
+        "species": "st",
+        "indices": [
+          100
+        ]
+      },
+      {
+        "species": "st",
+        "indices": [
+          101
+        ]
+      },
+      {
+        "species": "st",
+        "indices": [
+          102
+        ]
+      },
+      {
+        "species": "st",
+        "indices": [
+          103
+        ]
+      },
+      {
+        "species": "st",
+        "indices": [
+          104
+        ]
+      },
+      {
+        "species": "st",
+        "indices": [
+          105
+        ]
+      },
+      {
+        "species": "st",
+        "indices": [
+          106
+        ]
+      },
+      {
+        "species": "st",
+        "indices": [
+          107
+        ]
+      },
+      {
+        "species": "ho",
+        "indices": [
+          108
+        ]
+      },
+      {
+        "species": "ho",
+        "indices": [
+          109
+        ]
+      },
+      {
+        "species": "ho",
+        "indices": [
+          110
+        ]
+      },
+      {
+        "species": "ho",
+        "indices": [
+          111
+        ]
+      },
+      {
+        "species": "oh",
+        "indices": [
+          112
+        ]
+      },
+      {
+        "species": "oh",
+        "indices": [
+          113
+        ]
+      },
+      {
+        "species": "ohs",
+        "indices": [
+          114
+        ]
+      },
+      {
+        "species": "ohs",
+        "indices": [
+          115
+        ]
+      },
+      {
+        "species": "ao",
+        "indices": [
+          116
+        ]
+      },
+      {
+        "species": "ao",
+        "indices": [
+          117
+        ]
+      },
+      {
+        "species": "mgo",
+        "indices": [
+          118
+        ]
+      },
+      {
+        "species": "ao",
+        "indices": [
+          119
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          120
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          121
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          122
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          123
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          124
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          125
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          126
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          127
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          128
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          129
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          130
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          131
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          132
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          133
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          134
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          135
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          136
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          137
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          138
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          139
+        ]
+      },
+      {
+        "species": "st",
+        "indices": [
+          140
+        ]
+      },
+      {
+        "species": "st",
+        "indices": [
+          141
+        ]
+      },
+      {
+        "species": "st",
+        "indices": [
+          142
+        ]
+      },
+      {
+        "species": "st",
+        "indices": [
+          143
+        ]
+      },
+      {
+        "species": "st",
+        "indices": [
+          144
+        ]
+      },
+      {
+        "species": "st",
+        "indices": [
+          145
+        ]
+      },
+      {
+        "species": "st",
+        "indices": [
+          146
+        ]
+      },
+      {
+        "species": "st",
+        "indices": [
+          147
+        ]
+      },
+      {
+        "species": "ho",
+        "indices": [
+          148
+        ]
+      },
+      {
+        "species": "ho",
+        "indices": [
+          149
+        ]
+      },
+      {
+        "species": "ho",
+        "indices": [
+          150
+        ]
+      },
+      {
+        "species": "ho",
+        "indices": [
+          151
+        ]
+      },
+      {
+        "species": "oh",
+        "indices": [
+          152
+        ]
+      },
+      {
+        "species": "oh",
+        "indices": [
+          153
+        ]
+      },
+      {
+        "species": "oh",
+        "indices": [
+          154
+        ]
+      },
+      {
+        "species": "oh",
+        "indices": [
+          155
+        ]
+      },
+      {
+        "species": "ao",
+        "indices": [
+          156
+        ]
+      },
+      {
+        "species": "ao",
+        "indices": [
+          157
+        ]
+      },
+      {
+        "species": "ao",
+        "indices": [
+          158
+        ]
+      },
+      {
+        "species": "ao",
+        "indices": [
+          159
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          160
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          161
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          162
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          163
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          164
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          165
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          166
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          167
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          168
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          169
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          170
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          171
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          172
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          173
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          174
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          175
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          176
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          177
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          178
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          179
+        ]
+      },
+      {
+        "species": "st",
+        "indices": [
+          180
+        ]
+      },
+      {
+        "species": "st",
+        "indices": [
+          181
+        ]
+      },
+      {
+        "species": "st",
+        "indices": [
+          182
+        ]
+      },
+      {
+        "species": "st",
+        "indices": [
+          183
+        ]
+      },
+      {
+        "species": "st",
+        "indices": [
+          184
+        ]
+      },
+      {
+        "species": "st",
+        "indices": [
+          185
+        ]
+      },
+      {
+        "species": "st",
+        "indices": [
+          186
+        ]
+      },
+      {
+        "species": "st",
+        "indices": [
+          187
+        ]
+      },
+      {
+        "species": "ho",
+        "indices": [
+          188
+        ]
+      },
+      {
+        "species": "ho",
+        "indices": [
+          189
+        ]
+      },
+      {
+        "species": "ho",
+        "indices": [
+          190
+        ]
+      },
+      {
+        "species": "ho",
+        "indices": [
+          191
+        ]
+      },
+      {
+        "species": "oh",
+        "indices": [
+          192
+        ]
+      },
+      {
+        "species": "oh",
+        "indices": [
+          193
+        ]
+      },
+      {
+        "species": "oh",
+        "indices": [
+          194
+        ]
+      },
+      {
+        "species": "oh",
+        "indices": [
+          195
+        ]
+      },
+      {
+        "species": "ao",
+        "indices": [
+          196
+        ]
+      },
+      {
+        "species": "ao",
+        "indices": [
+          197
+        ]
+      },
+      {
+        "species": "ao",
+        "indices": [
+          198
+        ]
+      },
+      {
+        "species": "ao",
+        "indices": [
+          199
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          200
+        ]
+      },
+      {
+        "species": "obos",
+        "indices": [
+          201
+        ]
+      },
+      {
+        "species": "obos",
+        "indices": [
+          202
+        ]
+      },
+      {
+        "species": "obos",
+        "indices": [
+          203
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          204
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          205
+        ]
+      },
+      {
+        "species": "obos",
+        "indices": [
+          206
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          207
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          208
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          209
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          210
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          211
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          212
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          213
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          214
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          215
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          216
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          217
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          218
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          219
+        ]
+      },
+      {
+        "species": "st",
+        "indices": [
+          220
+        ]
+      },
+      {
+        "species": "st",
+        "indices": [
+          221
+        ]
+      },
+      {
+        "species": "st",
+        "indices": [
+          222
+        ]
+      },
+      {
+        "species": "st",
+        "indices": [
+          223
+        ]
+      },
+      {
+        "species": "st",
+        "indices": [
+          224
+        ]
+      },
+      {
+        "species": "st",
+        "indices": [
+          225
+        ]
+      },
+      {
+        "species": "st",
+        "indices": [
+          226
+        ]
+      },
+      {
+        "species": "st",
+        "indices": [
+          227
+        ]
+      },
+      {
+        "species": "ho",
+        "indices": [
+          228
+        ]
+      },
+      {
+        "species": "ho",
+        "indices": [
+          229
+        ]
+      },
+      {
+        "species": "ho",
+        "indices": [
+          230
+        ]
+      },
+      {
+        "species": "ho",
+        "indices": [
+          231
+        ]
+      },
+      {
+        "species": "ohs",
+        "indices": [
+          232
+        ]
+      },
+      {
+        "species": "ohs",
+        "indices": [
+          233
+        ]
+      },
+      {
+        "species": "oh",
+        "indices": [
+          234
+        ]
+      },
+      {
+        "species": "oh",
+        "indices": [
+          235
+        ]
+      },
+      {
+        "species": "ao",
+        "indices": [
+          236
+        ]
+      },
+      {
+        "species": "mgo",
+        "indices": [
+          237
+        ]
+      },
+      {
+        "species": "ao",
+        "indices": [
+          238
+        ]
+      },
+      {
+        "species": "ao",
+        "indices": [
+          239
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          240
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          241
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          242
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          243
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          244
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          245
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          246
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          247
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          248
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          249
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          250
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          251
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          252
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          253
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          254
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          255
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          256
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          257
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          258
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          259
+        ]
+      },
+      {
+        "species": "st",
+        "indices": [
+          260
+        ]
+      },
+      {
+        "species": "st",
+        "indices": [
+          261
+        ]
+      },
+      {
+        "species": "st",
+        "indices": [
+          262
+        ]
+      },
+      {
+        "species": "st",
+        "indices": [
+          263
+        ]
+      },
+      {
+        "species": "st",
+        "indices": [
+          264
+        ]
+      },
+      {
+        "species": "st",
+        "indices": [
+          265
+        ]
+      },
+      {
+        "species": "st",
+        "indices": [
+          266
+        ]
+      },
+      {
+        "species": "st",
+        "indices": [
+          267
+        ]
+      },
+      {
+        "species": "ho",
+        "indices": [
+          268
+        ]
+      },
+      {
+        "species": "ho",
+        "indices": [
+          269
+        ]
+      },
+      {
+        "species": "ho",
+        "indices": [
+          270
+        ]
+      },
+      {
+        "species": "ho",
+        "indices": [
+          271
+        ]
+      },
+      {
+        "species": "oh",
+        "indices": [
+          272
+        ]
+      },
+      {
+        "species": "oh",
+        "indices": [
+          273
+        ]
+      },
+      {
+        "species": "oh",
+        "indices": [
+          274
+        ]
+      },
+      {
+        "species": "oh",
+        "indices": [
+          275
+        ]
+      },
+      {
+        "species": "ao",
+        "indices": [
+          276
+        ]
+      },
+      {
+        "species": "ao",
+        "indices": [
+          277
+        ]
+      },
+      {
+        "species": "ao",
+        "indices": [
+          278
+        ]
+      },
+      {
+        "species": "ao",
+        "indices": [
+          279
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          280
+        ]
+      },
+      {
+        "species": "obos",
+        "indices": [
+          281
+        ]
+      },
+      {
+        "species": "obos",
+        "indices": [
+          282
+        ]
+      },
+      {
+        "species": "obos",
+        "indices": [
+          283
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          284
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          285
+        ]
+      },
+      {
+        "species": "obos",
+        "indices": [
+          286
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          287
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          288
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          289
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          290
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          291
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          292
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          293
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          294
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          295
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          296
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          297
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          298
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          299
+        ]
+      },
+      {
+        "species": "st",
+        "indices": [
+          300
+        ]
+      },
+      {
+        "species": "st",
+        "indices": [
+          301
+        ]
+      },
+      {
+        "species": "st",
+        "indices": [
+          302
+        ]
+      },
+      {
+        "species": "st",
+        "indices": [
+          303
+        ]
+      },
+      {
+        "species": "st",
+        "indices": [
+          304
+        ]
+      },
+      {
+        "species": "st",
+        "indices": [
+          305
+        ]
+      },
+      {
+        "species": "st",
+        "indices": [
+          306
+        ]
+      },
+      {
+        "species": "st",
+        "indices": [
+          307
+        ]
+      },
+      {
+        "species": "ho",
+        "indices": [
+          308
+        ]
+      },
+      {
+        "species": "ho",
+        "indices": [
+          309
+        ]
+      },
+      {
+        "species": "ho",
+        "indices": [
+          310
+        ]
+      },
+      {
+        "species": "ho",
+        "indices": [
+          311
+        ]
+      },
+      {
+        "species": "ohs",
+        "indices": [
+          312
+        ]
+      },
+      {
+        "species": "ohs",
+        "indices": [
+          313
+        ]
+      },
+      {
+        "species": "oh",
+        "indices": [
+          314
+        ]
+      },
+      {
+        "species": "oh",
+        "indices": [
+          315
+        ]
+      },
+      {
+        "species": "ao",
+        "indices": [
+          316
+        ]
+      },
+      {
+        "species": "mgo",
+        "indices": [
+          317
+        ]
+      },
+      {
+        "species": "ao",
+        "indices": [
+          318
+        ]
+      },
+      {
+        "species": "ao",
+        "indices": [
+          319
+        ]
+      },
+      {
+        "species": "obos",
+        "indices": [
+          320
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          321
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          322
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          323
+        ]
+      },
+      {
+        "species": "obos",
+        "indices": [
+          324
+        ]
+      },
+      {
+        "species": "obos",
+        "indices": [
+          325
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          326
+        ]
+      },
+      {
+        "species": "obos",
+        "indices": [
+          327
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          328
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          329
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          330
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          331
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          332
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          333
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          334
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          335
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          336
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          337
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          338
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          339
+        ]
+      },
+      {
+        "species": "st",
+        "indices": [
+          340
+        ]
+      },
+      {
+        "species": "st",
+        "indices": [
+          341
+        ]
+      },
+      {
+        "species": "st",
+        "indices": [
+          342
+        ]
+      },
+      {
+        "species": "st",
+        "indices": [
+          343
+        ]
+      },
+      {
+        "species": "st",
+        "indices": [
+          344
+        ]
+      },
+      {
+        "species": "st",
+        "indices": [
+          345
+        ]
+      },
+      {
+        "species": "st",
+        "indices": [
+          346
+        ]
+      },
+      {
+        "species": "st",
+        "indices": [
+          347
+        ]
+      },
+      {
+        "species": "ho",
+        "indices": [
+          348
+        ]
+      },
+      {
+        "species": "ho",
+        "indices": [
+          349
+        ]
+      },
+      {
+        "species": "ho",
+        "indices": [
+          350
+        ]
+      },
+      {
+        "species": "ho",
+        "indices": [
+          351
+        ]
+      },
+      {
+        "species": "oh",
+        "indices": [
+          352
+        ]
+      },
+      {
+        "species": "oh",
+        "indices": [
+          353
+        ]
+      },
+      {
+        "species": "ohs",
+        "indices": [
+          354
+        ]
+      },
+      {
+        "species": "ohs",
+        "indices": [
+          355
+        ]
+      },
+      {
+        "species": "ao",
+        "indices": [
+          356
+        ]
+      },
+      {
+        "species": "ao",
+        "indices": [
+          357
+        ]
+      },
+      {
+        "species": "mgo",
+        "indices": [
+          358
+        ]
+      },
+      {
+        "species": "ao",
+        "indices": [
+          359
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          360
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          361
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          362
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          363
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          364
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          365
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          366
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          367
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          368
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          369
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          370
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          371
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          372
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          373
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          374
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          375
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          376
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          377
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          378
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          379
+        ]
+      },
+      {
+        "species": "st",
+        "indices": [
+          380
+        ]
+      },
+      {
+        "species": "st",
+        "indices": [
+          381
+        ]
+      },
+      {
+        "species": "st",
+        "indices": [
+          382
+        ]
+      },
+      {
+        "species": "st",
+        "indices": [
+          383
+        ]
+      },
+      {
+        "species": "st",
+        "indices": [
+          384
+        ]
+      },
+      {
+        "species": "st",
+        "indices": [
+          385
+        ]
+      },
+      {
+        "species": "st",
+        "indices": [
+          386
+        ]
+      },
+      {
+        "species": "st",
+        "indices": [
+          387
+        ]
+      },
+      {
+        "species": "ho",
+        "indices": [
+          388
+        ]
+      },
+      {
+        "species": "ho",
+        "indices": [
+          389
+        ]
+      },
+      {
+        "species": "ho",
+        "indices": [
+          390
+        ]
+      },
+      {
+        "species": "ho",
+        "indices": [
+          391
+        ]
+      },
+      {
+        "species": "oh",
+        "indices": [
+          392
+        ]
+      },
+      {
+        "species": "oh",
+        "indices": [
+          393
+        ]
+      },
+      {
+        "species": "oh",
+        "indices": [
+          394
+        ]
+      },
+      {
+        "species": "oh",
+        "indices": [
+          395
+        ]
+      },
+      {
+        "species": "ao",
+        "indices": [
+          396
+        ]
+      },
+      {
+        "species": "ao",
+        "indices": [
+          397
+        ]
+      },
+      {
+        "species": "ao",
+        "indices": [
+          398
+        ]
+      },
+      {
+        "species": "ao",
+        "indices": [
+          399
+        ]
+      },
+      {
+        "species": "obos",
+        "indices": [
+          400
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          401
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          402
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          403
+        ]
+      },
+      {
+        "species": "obos",
+        "indices": [
+          404
+        ]
+      },
+      {
+        "species": "obos",
+        "indices": [
+          405
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          406
+        ]
+      },
+      {
+        "species": "obos",
+        "indices": [
+          407
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          408
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          409
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          410
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          411
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          412
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          413
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          414
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          415
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          416
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          417
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          418
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          419
+        ]
+      },
+      {
+        "species": "st",
+        "indices": [
+          420
+        ]
+      },
+      {
+        "species": "st",
+        "indices": [
+          421
+        ]
+      },
+      {
+        "species": "st",
+        "indices": [
+          422
+        ]
+      },
+      {
+        "species": "st",
+        "indices": [
+          423
+        ]
+      },
+      {
+        "species": "st",
+        "indices": [
+          424
+        ]
+      },
+      {
+        "species": "st",
+        "indices": [
+          425
+        ]
+      },
+      {
+        "species": "st",
+        "indices": [
+          426
+        ]
+      },
+      {
+        "species": "st",
+        "indices": [
+          427
+        ]
+      },
+      {
+        "species": "ho",
+        "indices": [
+          428
+        ]
+      },
+      {
+        "species": "ho",
+        "indices": [
+          429
+        ]
+      },
+      {
+        "species": "ho",
+        "indices": [
+          430
+        ]
+      },
+      {
+        "species": "ho",
+        "indices": [
+          431
+        ]
+      },
+      {
+        "species": "oh",
+        "indices": [
+          432
+        ]
+      },
+      {
+        "species": "oh",
+        "indices": [
+          433
+        ]
+      },
+      {
+        "species": "ohs",
+        "indices": [
+          434
+        ]
+      },
+      {
+        "species": "ohs",
+        "indices": [
+          435
+        ]
+      },
+      {
+        "species": "ao",
+        "indices": [
+          436
+        ]
+      },
+      {
+        "species": "ao",
+        "indices": [
+          437
+        ]
+      },
+      {
+        "species": "mgo",
+        "indices": [
+          438
+        ]
+      },
+      {
+        "species": "ao",
+        "indices": [
+          439
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          440
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          441
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          442
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          443
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          444
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          445
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          446
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          447
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          448
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          449
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          450
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          451
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          452
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          453
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          454
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          455
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          456
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          457
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          458
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          459
+        ]
+      },
+      {
+        "species": "st",
+        "indices": [
+          460
+        ]
+      },
+      {
+        "species": "st",
+        "indices": [
+          461
+        ]
+      },
+      {
+        "species": "st",
+        "indices": [
+          462
+        ]
+      },
+      {
+        "species": "st",
+        "indices": [
+          463
+        ]
+      },
+      {
+        "species": "st",
+        "indices": [
+          464
+        ]
+      },
+      {
+        "species": "st",
+        "indices": [
+          465
+        ]
+      },
+      {
+        "species": "st",
+        "indices": [
+          466
+        ]
+      },
+      {
+        "species": "st",
+        "indices": [
+          467
+        ]
+      },
+      {
+        "species": "ho",
+        "indices": [
+          468
+        ]
+      },
+      {
+        "species": "ho",
+        "indices": [
+          469
+        ]
+      },
+      {
+        "species": "ho",
+        "indices": [
+          470
+        ]
+      },
+      {
+        "species": "ho",
+        "indices": [
+          471
+        ]
+      },
+      {
+        "species": "oh",
+        "indices": [
+          472
+        ]
+      },
+      {
+        "species": "oh",
+        "indices": [
+          473
+        ]
+      },
+      {
+        "species": "oh",
+        "indices": [
+          474
+        ]
+      },
+      {
+        "species": "oh",
+        "indices": [
+          475
+        ]
+      },
+      {
+        "species": "ao",
+        "indices": [
+          476
+        ]
+      },
+      {
+        "species": "ao",
+        "indices": [
+          477
+        ]
+      },
+      {
+        "species": "ao",
+        "indices": [
+          478
+        ]
+      },
+      {
+        "species": "ao",
+        "indices": [
+          479
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          480
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          481
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          482
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          483
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          484
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          485
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          486
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          487
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          488
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          489
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          490
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          491
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          492
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          493
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          494
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          495
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          496
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          497
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          498
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          499
+        ]
+      },
+      {
+        "species": "st",
+        "indices": [
+          500
+        ]
+      },
+      {
+        "species": "st",
+        "indices": [
+          501
+        ]
+      },
+      {
+        "species": "st",
+        "indices": [
+          502
+        ]
+      },
+      {
+        "species": "st",
+        "indices": [
+          503
+        ]
+      },
+      {
+        "species": "st",
+        "indices": [
+          504
+        ]
+      },
+      {
+        "species": "st",
+        "indices": [
+          505
+        ]
+      },
+      {
+        "species": "st",
+        "indices": [
+          506
+        ]
+      },
+      {
+        "species": "st",
+        "indices": [
+          507
+        ]
+      },
+      {
+        "species": "ho",
+        "indices": [
+          508
+        ]
+      },
+      {
+        "species": "ho",
+        "indices": [
+          509
+        ]
+      },
+      {
+        "species": "ho",
+        "indices": [
+          510
+        ]
+      },
+      {
+        "species": "ho",
+        "indices": [
+          511
+        ]
+      },
+      {
+        "species": "oh",
+        "indices": [
+          512
+        ]
+      },
+      {
+        "species": "oh",
+        "indices": [
+          513
+        ]
+      },
+      {
+        "species": "oh",
+        "indices": [
+          514
+        ]
+      },
+      {
+        "species": "oh",
+        "indices": [
+          515
+        ]
+      },
+      {
+        "species": "ao",
+        "indices": [
+          516
+        ]
+      },
+      {
+        "species": "ao",
+        "indices": [
+          517
+        ]
+      },
+      {
+        "species": "ao",
+        "indices": [
+          518
+        ]
+      },
+      {
+        "species": "ao",
+        "indices": [
+          519
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          520
+        ]
+      },
+      {
+        "species": "obos",
+        "indices": [
+          521
+        ]
+      },
+      {
+        "species": "obos",
+        "indices": [
+          522
+        ]
+      },
+      {
+        "species": "obos",
+        "indices": [
+          523
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          524
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          525
+        ]
+      },
+      {
+        "species": "obos",
+        "indices": [
+          526
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          527
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          528
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          529
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          530
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          531
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          532
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          533
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          534
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          535
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          536
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          537
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          538
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          539
+        ]
+      },
+      {
+        "species": "st",
+        "indices": [
+          540
+        ]
+      },
+      {
+        "species": "st",
+        "indices": [
+          541
+        ]
+      },
+      {
+        "species": "st",
+        "indices": [
+          542
+        ]
+      },
+      {
+        "species": "st",
+        "indices": [
+          543
+        ]
+      },
+      {
+        "species": "st",
+        "indices": [
+          544
+        ]
+      },
+      {
+        "species": "st",
+        "indices": [
+          545
+        ]
+      },
+      {
+        "species": "st",
+        "indices": [
+          546
+        ]
+      },
+      {
+        "species": "st",
+        "indices": [
+          547
+        ]
+      },
+      {
+        "species": "ho",
+        "indices": [
+          548
+        ]
+      },
+      {
+        "species": "ho",
+        "indices": [
+          549
+        ]
+      },
+      {
+        "species": "ho",
+        "indices": [
+          550
+        ]
+      },
+      {
+        "species": "ho",
+        "indices": [
+          551
+        ]
+      },
+      {
+        "species": "ohs",
+        "indices": [
+          552
+        ]
+      },
+      {
+        "species": "ohs",
+        "indices": [
+          553
+        ]
+      },
+      {
+        "species": "oh",
+        "indices": [
+          554
+        ]
+      },
+      {
+        "species": "oh",
+        "indices": [
+          555
+        ]
+      },
+      {
+        "species": "ao",
+        "indices": [
+          556
+        ]
+      },
+      {
+        "species": "mgo",
+        "indices": [
+          557
+        ]
+      },
+      {
+        "species": "ao",
+        "indices": [
+          558
+        ]
+      },
+      {
+        "species": "ao",
+        "indices": [
+          559
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          560
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          561
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          562
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          563
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          564
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          565
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          566
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          567
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          568
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          569
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          570
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          571
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          572
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          573
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          574
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          575
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          576
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          577
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          578
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          579
+        ]
+      },
+      {
+        "species": "st",
+        "indices": [
+          580
+        ]
+      },
+      {
+        "species": "st",
+        "indices": [
+          581
+        ]
+      },
+      {
+        "species": "st",
+        "indices": [
+          582
+        ]
+      },
+      {
+        "species": "st",
+        "indices": [
+          583
+        ]
+      },
+      {
+        "species": "st",
+        "indices": [
+          584
+        ]
+      },
+      {
+        "species": "st",
+        "indices": [
+          585
+        ]
+      },
+      {
+        "species": "st",
+        "indices": [
+          586
+        ]
+      },
+      {
+        "species": "st",
+        "indices": [
+          587
+        ]
+      },
+      {
+        "species": "ho",
+        "indices": [
+          588
+        ]
+      },
+      {
+        "species": "ho",
+        "indices": [
+          589
+        ]
+      },
+      {
+        "species": "ho",
+        "indices": [
+          590
+        ]
+      },
+      {
+        "species": "ho",
+        "indices": [
+          591
+        ]
+      },
+      {
+        "species": "oh",
+        "indices": [
+          592
+        ]
+      },
+      {
+        "species": "oh",
+        "indices": [
+          593
+        ]
+      },
+      {
+        "species": "oh",
+        "indices": [
+          594
+        ]
+      },
+      {
+        "species": "oh",
+        "indices": [
+          595
+        ]
+      },
+      {
+        "species": "ao",
+        "indices": [
+          596
+        ]
+      },
+      {
+        "species": "ao",
+        "indices": [
+          597
+        ]
+      },
+      {
+        "species": "ao",
+        "indices": [
+          598
+        ]
+      },
+      {
+        "species": "ao",
+        "indices": [
+          599
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          600
+        ]
+      },
+      {
+        "species": "obos",
+        "indices": [
+          601
+        ]
+      },
+      {
+        "species": "obos",
+        "indices": [
+          602
+        ]
+      },
+      {
+        "species": "obos",
+        "indices": [
+          603
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          604
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          605
+        ]
+      },
+      {
+        "species": "obos",
+        "indices": [
+          606
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          607
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          608
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          609
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          610
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          611
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          612
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          613
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          614
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          615
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          616
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          617
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          618
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          619
+        ]
+      },
+      {
+        "species": "st",
+        "indices": [
+          620
+        ]
+      },
+      {
+        "species": "st",
+        "indices": [
+          621
+        ]
+      },
+      {
+        "species": "st",
+        "indices": [
+          622
+        ]
+      },
+      {
+        "species": "st",
+        "indices": [
+          623
+        ]
+      },
+      {
+        "species": "st",
+        "indices": [
+          624
+        ]
+      },
+      {
+        "species": "st",
+        "indices": [
+          625
+        ]
+      },
+      {
+        "species": "st",
+        "indices": [
+          626
+        ]
+      },
+      {
+        "species": "st",
+        "indices": [
+          627
+        ]
+      },
+      {
+        "species": "ho",
+        "indices": [
+          628
+        ]
+      },
+      {
+        "species": "ho",
+        "indices": [
+          629
+        ]
+      },
+      {
+        "species": "ho",
+        "indices": [
+          630
+        ]
+      },
+      {
+        "species": "ho",
+        "indices": [
+          631
+        ]
+      },
+      {
+        "species": "ohs",
+        "indices": [
+          632
+        ]
+      },
+      {
+        "species": "ohs",
+        "indices": [
+          633
+        ]
+      },
+      {
+        "species": "oh",
+        "indices": [
+          634
+        ]
+      },
+      {
+        "species": "oh",
+        "indices": [
+          635
+        ]
+      },
+      {
+        "species": "ao",
+        "indices": [
+          636
+        ]
+      },
+      {
+        "species": "mgo",
+        "indices": [
+          637
+        ]
+      },
+      {
+        "species": "ao",
+        "indices": [
+          638
+        ]
+      },
+      {
+        "species": "ao",
+        "indices": [
+          639
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          640
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          641
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          642
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          643
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          644
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          645
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          646
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          647
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          648
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          649
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          650
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          651
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          652
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          653
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          654
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          655
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          656
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          657
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          658
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          659
+        ]
+      },
+      {
+        "species": "st",
+        "indices": [
+          660
+        ]
+      },
+      {
+        "species": "st",
+        "indices": [
+          661
+        ]
+      },
+      {
+        "species": "st",
+        "indices": [
+          662
+        ]
+      },
+      {
+        "species": "st",
+        "indices": [
+          663
+        ]
+      },
+      {
+        "species": "st",
+        "indices": [
+          664
+        ]
+      },
+      {
+        "species": "st",
+        "indices": [
+          665
+        ]
+      },
+      {
+        "species": "st",
+        "indices": [
+          666
+        ]
+      },
+      {
+        "species": "st",
+        "indices": [
+          667
+        ]
+      },
+      {
+        "species": "ho",
+        "indices": [
+          668
+        ]
+      },
+      {
+        "species": "ho",
+        "indices": [
+          669
+        ]
+      },
+      {
+        "species": "ho",
+        "indices": [
+          670
+        ]
+      },
+      {
+        "species": "ho",
+        "indices": [
+          671
+        ]
+      },
+      {
+        "species": "oh",
+        "indices": [
+          672
+        ]
+      },
+      {
+        "species": "oh",
+        "indices": [
+          673
+        ]
+      },
+      {
+        "species": "oh",
+        "indices": [
+          674
+        ]
+      },
+      {
+        "species": "oh",
+        "indices": [
+          675
+        ]
+      },
+      {
+        "species": "ao",
+        "indices": [
+          676
+        ]
+      },
+      {
+        "species": "ao",
+        "indices": [
+          677
+        ]
+      },
+      {
+        "species": "ao",
+        "indices": [
+          678
+        ]
+      },
+      {
+        "species": "ao",
+        "indices": [
+          679
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          680
+        ]
+      },
+      {
+        "species": "obos",
+        "indices": [
+          681
+        ]
+      },
+      {
+        "species": "obos",
+        "indices": [
+          682
+        ]
+      },
+      {
+        "species": "obos",
+        "indices": [
+          683
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          684
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          685
+        ]
+      },
+      {
+        "species": "obos",
+        "indices": [
+          686
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          687
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          688
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          689
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          690
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          691
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          692
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          693
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          694
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          695
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          696
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          697
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          698
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          699
+        ]
+      },
+      {
+        "species": "st",
+        "indices": [
+          700
+        ]
+      },
+      {
+        "species": "st",
+        "indices": [
+          701
+        ]
+      },
+      {
+        "species": "st",
+        "indices": [
+          702
+        ]
+      },
+      {
+        "species": "st",
+        "indices": [
+          703
+        ]
+      },
+      {
+        "species": "st",
+        "indices": [
+          704
+        ]
+      },
+      {
+        "species": "st",
+        "indices": [
+          705
+        ]
+      },
+      {
+        "species": "st",
+        "indices": [
+          706
+        ]
+      },
+      {
+        "species": "st",
+        "indices": [
+          707
+        ]
+      },
+      {
+        "species": "ho",
+        "indices": [
+          708
+        ]
+      },
+      {
+        "species": "ho",
+        "indices": [
+          709
+        ]
+      },
+      {
+        "species": "ho",
+        "indices": [
+          710
+        ]
+      },
+      {
+        "species": "ho",
+        "indices": [
+          711
+        ]
+      },
+      {
+        "species": "ohs",
+        "indices": [
+          712
+        ]
+      },
+      {
+        "species": "ohs",
+        "indices": [
+          713
+        ]
+      },
+      {
+        "species": "oh",
+        "indices": [
+          714
+        ]
+      },
+      {
+        "species": "oh",
+        "indices": [
+          715
+        ]
+      },
+      {
+        "species": "ao",
+        "indices": [
+          716
+        ]
+      },
+      {
+        "species": "mgo",
+        "indices": [
+          717
+        ]
+      },
+      {
+        "species": "ao",
+        "indices": [
+          718
+        ]
+      },
+      {
+        "species": "ao",
+        "indices": [
+          719
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          720
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          721
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          722
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          723
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          724
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          725
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          726
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          727
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          728
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          729
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          730
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          731
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          732
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          733
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          734
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          735
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          736
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          737
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          738
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          739
+        ]
+      },
+      {
+        "species": "st",
+        "indices": [
+          740
+        ]
+      },
+      {
+        "species": "st",
+        "indices": [
+          741
+        ]
+      },
+      {
+        "species": "st",
+        "indices": [
+          742
+        ]
+      },
+      {
+        "species": "st",
+        "indices": [
+          743
+        ]
+      },
+      {
+        "species": "st",
+        "indices": [
+          744
+        ]
+      },
+      {
+        "species": "st",
+        "indices": [
+          745
+        ]
+      },
+      {
+        "species": "st",
+        "indices": [
+          746
+        ]
+      },
+      {
+        "species": "st",
+        "indices": [
+          747
+        ]
+      },
+      {
+        "species": "ho",
+        "indices": [
+          748
+        ]
+      },
+      {
+        "species": "ho",
+        "indices": [
+          749
+        ]
+      },
+      {
+        "species": "ho",
+        "indices": [
+          750
+        ]
+      },
+      {
+        "species": "ho",
+        "indices": [
+          751
+        ]
+      },
+      {
+        "species": "oh",
+        "indices": [
+          752
+        ]
+      },
+      {
+        "species": "oh",
+        "indices": [
+          753
+        ]
+      },
+      {
+        "species": "oh",
+        "indices": [
+          754
+        ]
+      },
+      {
+        "species": "oh",
+        "indices": [
+          755
+        ]
+      },
+      {
+        "species": "ao",
+        "indices": [
+          756
+        ]
+      },
+      {
+        "species": "ao",
+        "indices": [
+          757
+        ]
+      },
+      {
+        "species": "ao",
+        "indices": [
+          758
+        ]
+      },
+      {
+        "species": "ao",
+        "indices": [
+          759
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          760
+        ]
+      },
+      {
+        "species": "obos",
+        "indices": [
+          761
+        ]
+      },
+      {
+        "species": "obos",
+        "indices": [
+          762
+        ]
+      },
+      {
+        "species": "obos",
+        "indices": [
+          763
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          764
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          765
+        ]
+      },
+      {
+        "species": "obos",
+        "indices": [
+          766
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          767
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          768
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          769
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          770
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          771
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          772
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          773
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          774
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          775
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          776
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          777
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          778
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          779
+        ]
+      },
+      {
+        "species": "st",
+        "indices": [
+          780
+        ]
+      },
+      {
+        "species": "st",
+        "indices": [
+          781
+        ]
+      },
+      {
+        "species": "st",
+        "indices": [
+          782
+        ]
+      },
+      {
+        "species": "st",
+        "indices": [
+          783
+        ]
+      },
+      {
+        "species": "st",
+        "indices": [
+          784
+        ]
+      },
+      {
+        "species": "st",
+        "indices": [
+          785
+        ]
+      },
+      {
+        "species": "st",
+        "indices": [
+          786
+        ]
+      },
+      {
+        "species": "st",
+        "indices": [
+          787
+        ]
+      },
+      {
+        "species": "ho",
+        "indices": [
+          788
+        ]
+      },
+      {
+        "species": "ho",
+        "indices": [
+          789
+        ]
+      },
+      {
+        "species": "ho",
+        "indices": [
+          790
+        ]
+      },
+      {
+        "species": "ho",
+        "indices": [
+          791
+        ]
+      },
+      {
+        "species": "ohs",
+        "indices": [
+          792
+        ]
+      },
+      {
+        "species": "ohs",
+        "indices": [
+          793
+        ]
+      },
+      {
+        "species": "oh",
+        "indices": [
+          794
+        ]
+      },
+      {
+        "species": "oh",
+        "indices": [
+          795
+        ]
+      },
+      {
+        "species": "ao",
+        "indices": [
+          796
+        ]
+      },
+      {
+        "species": "mgo",
+        "indices": [
+          797
+        ]
+      },
+      {
+        "species": "ao",
+        "indices": [
+          798
+        ]
+      },
+      {
+        "species": "ao",
+        "indices": [
+          799
+        ]
+      },
+      {
+        "species": "obos",
+        "indices": [
+          800
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          801
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          802
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          803
+        ]
+      },
+      {
+        "species": "obos",
+        "indices": [
+          804
+        ]
+      },
+      {
+        "species": "obos",
+        "indices": [
+          805
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          806
+        ]
+      },
+      {
+        "species": "obos",
+        "indices": [
+          807
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          808
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          809
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          810
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          811
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          812
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          813
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          814
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          815
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          816
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          817
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          818
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          819
+        ]
+      },
+      {
+        "species": "st",
+        "indices": [
+          820
+        ]
+      },
+      {
+        "species": "st",
+        "indices": [
+          821
+        ]
+      },
+      {
+        "species": "st",
+        "indices": [
+          822
+        ]
+      },
+      {
+        "species": "st",
+        "indices": [
+          823
+        ]
+      },
+      {
+        "species": "st",
+        "indices": [
+          824
+        ]
+      },
+      {
+        "species": "st",
+        "indices": [
+          825
+        ]
+      },
+      {
+        "species": "st",
+        "indices": [
+          826
+        ]
+      },
+      {
+        "species": "st",
+        "indices": [
+          827
+        ]
+      },
+      {
+        "species": "ho",
+        "indices": [
+          828
+        ]
+      },
+      {
+        "species": "ho",
+        "indices": [
+          829
+        ]
+      },
+      {
+        "species": "ho",
+        "indices": [
+          830
+        ]
+      },
+      {
+        "species": "ho",
+        "indices": [
+          831
+        ]
+      },
+      {
+        "species": "oh",
+        "indices": [
+          832
+        ]
+      },
+      {
+        "species": "oh",
+        "indices": [
+          833
+        ]
+      },
+      {
+        "species": "ohs",
+        "indices": [
+          834
+        ]
+      },
+      {
+        "species": "ohs",
+        "indices": [
+          835
+        ]
+      },
+      {
+        "species": "ao",
+        "indices": [
+          836
+        ]
+      },
+      {
+        "species": "ao",
+        "indices": [
+          837
+        ]
+      },
+      {
+        "species": "mgo",
+        "indices": [
+          838
+        ]
+      },
+      {
+        "species": "ao",
+        "indices": [
+          839
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          840
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          841
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          842
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          843
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          844
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          845
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          846
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          847
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          848
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          849
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          850
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          851
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          852
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          853
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          854
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          855
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          856
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          857
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          858
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          859
+        ]
+      },
+      {
+        "species": "st",
+        "indices": [
+          860
+        ]
+      },
+      {
+        "species": "st",
+        "indices": [
+          861
+        ]
+      },
+      {
+        "species": "st",
+        "indices": [
+          862
+        ]
+      },
+      {
+        "species": "st",
+        "indices": [
+          863
+        ]
+      },
+      {
+        "species": "st",
+        "indices": [
+          864
+        ]
+      },
+      {
+        "species": "st",
+        "indices": [
+          865
+        ]
+      },
+      {
+        "species": "st",
+        "indices": [
+          866
+        ]
+      },
+      {
+        "species": "st",
+        "indices": [
+          867
+        ]
+      },
+      {
+        "species": "ho",
+        "indices": [
+          868
+        ]
+      },
+      {
+        "species": "ho",
+        "indices": [
+          869
+        ]
+      },
+      {
+        "species": "ho",
+        "indices": [
+          870
+        ]
+      },
+      {
+        "species": "ho",
+        "indices": [
+          871
+        ]
+      },
+      {
+        "species": "oh",
+        "indices": [
+          872
+        ]
+      },
+      {
+        "species": "oh",
+        "indices": [
+          873
+        ]
+      },
+      {
+        "species": "oh",
+        "indices": [
+          874
+        ]
+      },
+      {
+        "species": "oh",
+        "indices": [
+          875
+        ]
+      },
+      {
+        "species": "ao",
+        "indices": [
+          876
+        ]
+      },
+      {
+        "species": "ao",
+        "indices": [
+          877
+        ]
+      },
+      {
+        "species": "ao",
+        "indices": [
+          878
+        ]
+      },
+      {
+        "species": "ao",
+        "indices": [
+          879
+        ]
+      },
+      {
+        "species": "obos",
+        "indices": [
+          880
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          881
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          882
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          883
+        ]
+      },
+      {
+        "species": "obos",
+        "indices": [
+          884
+        ]
+      },
+      {
+        "species": "obos",
+        "indices": [
+          885
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          886
+        ]
+      },
+      {
+        "species": "obos",
+        "indices": [
+          887
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          888
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          889
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          890
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          891
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          892
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          893
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          894
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          895
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          896
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          897
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          898
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          899
+        ]
+      },
+      {
+        "species": "st",
+        "indices": [
+          900
+        ]
+      },
+      {
+        "species": "st",
+        "indices": [
+          901
+        ]
+      },
+      {
+        "species": "st",
+        "indices": [
+          902
+        ]
+      },
+      {
+        "species": "st",
+        "indices": [
+          903
+        ]
+      },
+      {
+        "species": "st",
+        "indices": [
+          904
+        ]
+      },
+      {
+        "species": "st",
+        "indices": [
+          905
+        ]
+      },
+      {
+        "species": "st",
+        "indices": [
+          906
+        ]
+      },
+      {
+        "species": "st",
+        "indices": [
+          907
+        ]
+      },
+      {
+        "species": "ho",
+        "indices": [
+          908
+        ]
+      },
+      {
+        "species": "ho",
+        "indices": [
+          909
+        ]
+      },
+      {
+        "species": "ho",
+        "indices": [
+          910
+        ]
+      },
+      {
+        "species": "ho",
+        "indices": [
+          911
+        ]
+      },
+      {
+        "species": "oh",
+        "indices": [
+          912
+        ]
+      },
+      {
+        "species": "oh",
+        "indices": [
+          913
+        ]
+      },
+      {
+        "species": "ohs",
+        "indices": [
+          914
+        ]
+      },
+      {
+        "species": "ohs",
+        "indices": [
+          915
+        ]
+      },
+      {
+        "species": "ao",
+        "indices": [
+          916
+        ]
+      },
+      {
+        "species": "ao",
+        "indices": [
+          917
+        ]
+      },
+      {
+        "species": "mgo",
+        "indices": [
+          918
+        ]
+      },
+      {
+        "species": "ao",
+        "indices": [
+          919
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          920
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          921
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          922
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          923
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          924
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          925
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          926
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          927
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          928
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          929
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          930
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          931
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          932
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          933
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          934
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          935
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          936
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          937
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          938
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          939
+        ]
+      },
+      {
+        "species": "st",
+        "indices": [
+          940
+        ]
+      },
+      {
+        "species": "st",
+        "indices": [
+          941
+        ]
+      },
+      {
+        "species": "st",
+        "indices": [
+          942
+        ]
+      },
+      {
+        "species": "st",
+        "indices": [
+          943
+        ]
+      },
+      {
+        "species": "st",
+        "indices": [
+          944
+        ]
+      },
+      {
+        "species": "st",
+        "indices": [
+          945
+        ]
+      },
+      {
+        "species": "st",
+        "indices": [
+          946
+        ]
+      },
+      {
+        "species": "st",
+        "indices": [
+          947
+        ]
+      },
+      {
+        "species": "ho",
+        "indices": [
+          948
+        ]
+      },
+      {
+        "species": "ho",
+        "indices": [
+          949
+        ]
+      },
+      {
+        "species": "ho",
+        "indices": [
+          950
+        ]
+      },
+      {
+        "species": "ho",
+        "indices": [
+          951
+        ]
+      },
+      {
+        "species": "oh",
+        "indices": [
+          952
+        ]
+      },
+      {
+        "species": "oh",
+        "indices": [
+          953
+        ]
+      },
+      {
+        "species": "oh",
+        "indices": [
+          954
+        ]
+      },
+      {
+        "species": "oh",
+        "indices": [
+          955
+        ]
+      },
+      {
+        "species": "ao",
+        "indices": [
+          956
+        ]
+      },
+      {
+        "species": "ao",
+        "indices": [
+          957
+        ]
+      },
+      {
+        "species": "ao",
+        "indices": [
+          958
+        ]
+      },
+      {
+        "species": "ao",
+        "indices": [
+          959
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          960
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          961
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          962
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          963
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          964
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          965
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          966
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          967
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          968
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          969
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          970
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          971
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          972
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          973
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          974
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          975
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          976
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          977
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          978
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          979
+        ]
+      },
+      {
+        "species": "st",
+        "indices": [
+          980
+        ]
+      },
+      {
+        "species": "st",
+        "indices": [
+          981
+        ]
+      },
+      {
+        "species": "st",
+        "indices": [
+          982
+        ]
+      },
+      {
+        "species": "st",
+        "indices": [
+          983
+        ]
+      },
+      {
+        "species": "st",
+        "indices": [
+          984
+        ]
+      },
+      {
+        "species": "st",
+        "indices": [
+          985
+        ]
+      },
+      {
+        "species": "st",
+        "indices": [
+          986
+        ]
+      },
+      {
+        "species": "st",
+        "indices": [
+          987
+        ]
+      },
+      {
+        "species": "ho",
+        "indices": [
+          988
+        ]
+      },
+      {
+        "species": "ho",
+        "indices": [
+          989
+        ]
+      },
+      {
+        "species": "ho",
+        "indices": [
+          990
+        ]
+      },
+      {
+        "species": "ho",
+        "indices": [
+          991
+        ]
+      },
+      {
+        "species": "oh",
+        "indices": [
+          992
+        ]
+      },
+      {
+        "species": "oh",
+        "indices": [
+          993
+        ]
+      },
+      {
+        "species": "oh",
+        "indices": [
+          994
+        ]
+      },
+      {
+        "species": "oh",
+        "indices": [
+          995
+        ]
+      },
+      {
+        "species": "ao",
+        "indices": [
+          996
+        ]
+      },
+      {
+        "species": "ao",
+        "indices": [
+          997
+        ]
+      },
+      {
+        "species": "ao",
+        "indices": [
+          998
+        ]
+      },
+      {
+        "species": "ao",
+        "indices": [
+          999
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          1000
+        ]
+      },
+      {
+        "species": "obos",
+        "indices": [
+          1001
+        ]
+      },
+      {
+        "species": "obos",
+        "indices": [
+          1002
+        ]
+      },
+      {
+        "species": "obos",
+        "indices": [
+          1003
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          1004
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          1005
+        ]
+      },
+      {
+        "species": "obos",
+        "indices": [
+          1006
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          1007
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          1008
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          1009
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          1010
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          1011
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          1012
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          1013
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          1014
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          1015
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          1016
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          1017
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          1018
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          1019
+        ]
+      },
+      {
+        "species": "st",
+        "indices": [
+          1020
+        ]
+      },
+      {
+        "species": "st",
+        "indices": [
+          1021
+        ]
+      },
+      {
+        "species": "st",
+        "indices": [
+          1022
+        ]
+      },
+      {
+        "species": "st",
+        "indices": [
+          1023
+        ]
+      },
+      {
+        "species": "st",
+        "indices": [
+          1024
+        ]
+      },
+      {
+        "species": "st",
+        "indices": [
+          1025
+        ]
+      },
+      {
+        "species": "st",
+        "indices": [
+          1026
+        ]
+      },
+      {
+        "species": "st",
+        "indices": [
+          1027
+        ]
+      },
+      {
+        "species": "ho",
+        "indices": [
+          1028
+        ]
+      },
+      {
+        "species": "ho",
+        "indices": [
+          1029
+        ]
+      },
+      {
+        "species": "ho",
+        "indices": [
+          1030
+        ]
+      },
+      {
+        "species": "ho",
+        "indices": [
+          1031
+        ]
+      },
+      {
+        "species": "ohs",
+        "indices": [
+          1032
+        ]
+      },
+      {
+        "species": "ohs",
+        "indices": [
+          1033
+        ]
+      },
+      {
+        "species": "oh",
+        "indices": [
+          1034
+        ]
+      },
+      {
+        "species": "oh",
+        "indices": [
+          1035
+        ]
+      },
+      {
+        "species": "ao",
+        "indices": [
+          1036
+        ]
+      },
+      {
+        "species": "mgo",
+        "indices": [
+          1037
+        ]
+      },
+      {
+        "species": "ao",
+        "indices": [
+          1038
+        ]
+      },
+      {
+        "species": "ao",
+        "indices": [
+          1039
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          1040
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          1041
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          1042
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          1043
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          1044
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          1045
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          1046
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          1047
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          1048
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          1049
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          1050
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          1051
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          1052
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          1053
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          1054
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          1055
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          1056
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          1057
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          1058
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          1059
+        ]
+      },
+      {
+        "species": "st",
+        "indices": [
+          1060
+        ]
+      },
+      {
+        "species": "st",
+        "indices": [
+          1061
+        ]
+      },
+      {
+        "species": "st",
+        "indices": [
+          1062
+        ]
+      },
+      {
+        "species": "st",
+        "indices": [
+          1063
+        ]
+      },
+      {
+        "species": "st",
+        "indices": [
+          1064
+        ]
+      },
+      {
+        "species": "st",
+        "indices": [
+          1065
+        ]
+      },
+      {
+        "species": "st",
+        "indices": [
+          1066
+        ]
+      },
+      {
+        "species": "st",
+        "indices": [
+          1067
+        ]
+      },
+      {
+        "species": "ho",
+        "indices": [
+          1068
+        ]
+      },
+      {
+        "species": "ho",
+        "indices": [
+          1069
+        ]
+      },
+      {
+        "species": "ho",
+        "indices": [
+          1070
+        ]
+      },
+      {
+        "species": "ho",
+        "indices": [
+          1071
+        ]
+      },
+      {
+        "species": "oh",
+        "indices": [
+          1072
+        ]
+      },
+      {
+        "species": "oh",
+        "indices": [
+          1073
+        ]
+      },
+      {
+        "species": "oh",
+        "indices": [
+          1074
+        ]
+      },
+      {
+        "species": "oh",
+        "indices": [
+          1075
+        ]
+      },
+      {
+        "species": "ao",
+        "indices": [
+          1076
+        ]
+      },
+      {
+        "species": "ao",
+        "indices": [
+          1077
+        ]
+      },
+      {
+        "species": "ao",
+        "indices": [
+          1078
+        ]
+      },
+      {
+        "species": "ao",
+        "indices": [
+          1079
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          1080
+        ]
+      },
+      {
+        "species": "obos",
+        "indices": [
+          1081
+        ]
+      },
+      {
+        "species": "obos",
+        "indices": [
+          1082
+        ]
+      },
+      {
+        "species": "obos",
+        "indices": [
+          1083
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          1084
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          1085
+        ]
+      },
+      {
+        "species": "obos",
+        "indices": [
+          1086
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          1087
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          1088
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          1089
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          1090
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          1091
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          1092
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          1093
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          1094
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          1095
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          1096
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          1097
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          1098
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          1099
+        ]
+      },
+      {
+        "species": "st",
+        "indices": [
+          1100
+        ]
+      },
+      {
+        "species": "st",
+        "indices": [
+          1101
+        ]
+      },
+      {
+        "species": "st",
+        "indices": [
+          1102
+        ]
+      },
+      {
+        "species": "st",
+        "indices": [
+          1103
+        ]
+      },
+      {
+        "species": "st",
+        "indices": [
+          1104
+        ]
+      },
+      {
+        "species": "st",
+        "indices": [
+          1105
+        ]
+      },
+      {
+        "species": "st",
+        "indices": [
+          1106
+        ]
+      },
+      {
+        "species": "st",
+        "indices": [
+          1107
+        ]
+      },
+      {
+        "species": "ho",
+        "indices": [
+          1108
+        ]
+      },
+      {
+        "species": "ho",
+        "indices": [
+          1109
+        ]
+      },
+      {
+        "species": "ho",
+        "indices": [
+          1110
+        ]
+      },
+      {
+        "species": "ho",
+        "indices": [
+          1111
+        ]
+      },
+      {
+        "species": "ohs",
+        "indices": [
+          1112
+        ]
+      },
+      {
+        "species": "ohs",
+        "indices": [
+          1113
+        ]
+      },
+      {
+        "species": "oh",
+        "indices": [
+          1114
+        ]
+      },
+      {
+        "species": "oh",
+        "indices": [
+          1115
+        ]
+      },
+      {
+        "species": "ao",
+        "indices": [
+          1116
+        ]
+      },
+      {
+        "species": "mgo",
+        "indices": [
+          1117
+        ]
+      },
+      {
+        "species": "ao",
+        "indices": [
+          1118
+        ]
+      },
+      {
+        "species": "ao",
+        "indices": [
+          1119
+        ]
+      },
+      {
+        "species": "obos",
+        "indices": [
+          1120
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          1121
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          1122
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          1123
+        ]
+      },
+      {
+        "species": "obos",
+        "indices": [
+          1124
+        ]
+      },
+      {
+        "species": "obos",
+        "indices": [
+          1125
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          1126
+        ]
+      },
+      {
+        "species": "obos",
+        "indices": [
+          1127
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          1128
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          1129
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          1130
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          1131
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          1132
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          1133
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          1134
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          1135
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          1136
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          1137
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          1138
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          1139
+        ]
+      },
+      {
+        "species": "st",
+        "indices": [
+          1140
+        ]
+      },
+      {
+        "species": "st",
+        "indices": [
+          1141
+        ]
+      },
+      {
+        "species": "st",
+        "indices": [
+          1142
+        ]
+      },
+      {
+        "species": "st",
+        "indices": [
+          1143
+        ]
+      },
+      {
+        "species": "st",
+        "indices": [
+          1144
+        ]
+      },
+      {
+        "species": "st",
+        "indices": [
+          1145
+        ]
+      },
+      {
+        "species": "st",
+        "indices": [
+          1146
+        ]
+      },
+      {
+        "species": "st",
+        "indices": [
+          1147
+        ]
+      },
+      {
+        "species": "ho",
+        "indices": [
+          1148
+        ]
+      },
+      {
+        "species": "ho",
+        "indices": [
+          1149
+        ]
+      },
+      {
+        "species": "ho",
+        "indices": [
+          1150
+        ]
+      },
+      {
+        "species": "ho",
+        "indices": [
+          1151
+        ]
+      },
+      {
+        "species": "oh",
+        "indices": [
+          1152
+        ]
+      },
+      {
+        "species": "oh",
+        "indices": [
+          1153
+        ]
+      },
+      {
+        "species": "ohs",
+        "indices": [
+          1154
+        ]
+      },
+      {
+        "species": "ohs",
+        "indices": [
+          1155
+        ]
+      },
+      {
+        "species": "ao",
+        "indices": [
+          1156
+        ]
+      },
+      {
+        "species": "ao",
+        "indices": [
+          1157
+        ]
+      },
+      {
+        "species": "mgo",
+        "indices": [
+          1158
+        ]
+      },
+      {
+        "species": "ao",
+        "indices": [
+          1159
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          1160
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          1161
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          1162
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          1163
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          1164
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          1165
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          1166
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          1167
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          1168
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          1169
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          1170
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          1171
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          1172
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          1173
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          1174
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          1175
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          1176
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          1177
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          1178
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          1179
+        ]
+      },
+      {
+        "species": "st",
+        "indices": [
+          1180
+        ]
+      },
+      {
+        "species": "st",
+        "indices": [
+          1181
+        ]
+      },
+      {
+        "species": "st",
+        "indices": [
+          1182
+        ]
+      },
+      {
+        "species": "st",
+        "indices": [
+          1183
+        ]
+      },
+      {
+        "species": "st",
+        "indices": [
+          1184
+        ]
+      },
+      {
+        "species": "st",
+        "indices": [
+          1185
+        ]
+      },
+      {
+        "species": "st",
+        "indices": [
+          1186
+        ]
+      },
+      {
+        "species": "st",
+        "indices": [
+          1187
+        ]
+      },
+      {
+        "species": "ho",
+        "indices": [
+          1188
+        ]
+      },
+      {
+        "species": "ho",
+        "indices": [
+          1189
+        ]
+      },
+      {
+        "species": "ho",
+        "indices": [
+          1190
+        ]
+      },
+      {
+        "species": "ho",
+        "indices": [
+          1191
+        ]
+      },
+      {
+        "species": "oh",
+        "indices": [
+          1192
+        ]
+      },
+      {
+        "species": "oh",
+        "indices": [
+          1193
+        ]
+      },
+      {
+        "species": "oh",
+        "indices": [
+          1194
+        ]
+      },
+      {
+        "species": "oh",
+        "indices": [
+          1195
+        ]
+      },
+      {
+        "species": "ao",
+        "indices": [
+          1196
+        ]
+      },
+      {
+        "species": "ao",
+        "indices": [
+          1197
+        ]
+      },
+      {
+        "species": "ao",
+        "indices": [
+          1198
+        ]
+      },
+      {
+        "species": "ao",
+        "indices": [
+          1199
+        ]
+      },
+      {
+        "species": "obos",
+        "indices": [
+          1200
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          1201
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          1202
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          1203
+        ]
+      },
+      {
+        "species": "obos",
+        "indices": [
+          1204
+        ]
+      },
+      {
+        "species": "obos",
+        "indices": [
+          1205
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          1206
+        ]
+      },
+      {
+        "species": "obos",
+        "indices": [
+          1207
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          1208
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          1209
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          1210
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          1211
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          1212
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          1213
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          1214
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          1215
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          1216
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          1217
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          1218
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          1219
+        ]
+      },
+      {
+        "species": "st",
+        "indices": [
+          1220
+        ]
+      },
+      {
+        "species": "st",
+        "indices": [
+          1221
+        ]
+      },
+      {
+        "species": "st",
+        "indices": [
+          1222
+        ]
+      },
+      {
+        "species": "st",
+        "indices": [
+          1223
+        ]
+      },
+      {
+        "species": "st",
+        "indices": [
+          1224
+        ]
+      },
+      {
+        "species": "st",
+        "indices": [
+          1225
+        ]
+      },
+      {
+        "species": "st",
+        "indices": [
+          1226
+        ]
+      },
+      {
+        "species": "st",
+        "indices": [
+          1227
+        ]
+      },
+      {
+        "species": "ho",
+        "indices": [
+          1228
+        ]
+      },
+      {
+        "species": "ho",
+        "indices": [
+          1229
+        ]
+      },
+      {
+        "species": "ho",
+        "indices": [
+          1230
+        ]
+      },
+      {
+        "species": "ho",
+        "indices": [
+          1231
+        ]
+      },
+      {
+        "species": "oh",
+        "indices": [
+          1232
+        ]
+      },
+      {
+        "species": "oh",
+        "indices": [
+          1233
+        ]
+      },
+      {
+        "species": "ohs",
+        "indices": [
+          1234
+        ]
+      },
+      {
+        "species": "ohs",
+        "indices": [
+          1235
+        ]
+      },
+      {
+        "species": "ao",
+        "indices": [
+          1236
+        ]
+      },
+      {
+        "species": "ao",
+        "indices": [
+          1237
+        ]
+      },
+      {
+        "species": "mgo",
+        "indices": [
+          1238
+        ]
+      },
+      {
+        "species": "ao",
+        "indices": [
+          1239
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          1240
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          1241
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          1242
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          1243
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          1244
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          1245
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          1246
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          1247
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          1248
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          1249
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          1250
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          1251
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          1252
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          1253
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          1254
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          1255
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          1256
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          1257
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          1258
+        ]
+      },
+      {
+        "species": "ob",
+        "indices": [
+          1259
+        ]
+      },
+      {
+        "species": "st",
+        "indices": [
+          1260
+        ]
+      },
+      {
+        "species": "st",
+        "indices": [
+          1261
+        ]
+      },
+      {
+        "species": "st",
+        "indices": [
+          1262
+        ]
+      },
+      {
+        "species": "st",
+        "indices": [
+          1263
+        ]
+      },
+      {
+        "species": "st",
+        "indices": [
+          1264
+        ]
+      },
+      {
+        "species": "st",
+        "indices": [
+          1265
+        ]
+      },
+      {
+        "species": "st",
+        "indices": [
+          1266
+        ]
+      },
+      {
+        "species": "st",
+        "indices": [
+          1267
+        ]
+      },
+      {
+        "species": "ho",
+        "indices": [
+          1268
+        ]
+      },
+      {
+        "species": "ho",
+        "indices": [
+          1269
+        ]
+      },
+      {
+        "species": "ho",
+        "indices": [
+          1270
+        ]
+      },
+      {
+        "species": "ho",
+        "indices": [
+          1271
+        ]
+      },
+      {
+        "species": "oh",
+        "indices": [
+          1272
+        ]
+      },
+      {
+        "species": "oh",
+        "indices": [
+          1273
+        ]
+      },
+      {
+        "species": "oh",
+        "indices": [
+          1274
+        ]
+      },
+      {
+        "species": "oh",
+        "indices": [
+          1275
+        ]
+      },
+      {
+        "species": "ao",
+        "indices": [
+          1276
+        ]
+      },
+      {
+        "species": "ao",
+        "indices": [
+          1277
+        ]
+      },
+      {
+        "species": "ao",
+        "indices": [
+          1278
+        ]
+      },
+      {
+        "species": "ao",
+        "indices": [
+          1279
+        ]
+      },
+      {
+        "species": "Na",
+        "indices": [
+          1280
+        ]
+      },
+      {
+        "species": "Na",
+        "indices": [
+          1281
+        ]
+      },
+      {
+        "species": "Na",
+        "indices": [
+          1282
+        ]
+      },
+      {
+        "species": "Na",
+        "indices": [
+          1283
+        ]
+      },
+      {
+        "species": "Ca",
+        "indices": [
+          1284
+        ]
+      },
+      {
+        "species": "Ca",
+        "indices": [
+          1285
+        ]
+      },
+      {
+        "species": "Na",
+        "indices": [
+          1286
+        ]
+      },
+      {
+        "species": "Na",
+        "indices": [
+          1287
+        ]
+      },
+      {
+        "species": "Na",
+        "indices": [
+          1288
+        ]
+      },
+      {
+        "species": "Na",
+        "indices": [
+          1289
+        ]
+      },
+      {
+        "species": "Ca",
+        "indices": [
+          1290
+        ]
+      },
+      {
+        "species": "Ca",
+        "indices": [
+          1291
+        ]
+      }
+    ]
+  },
+  "source_trajectory": "/Users/harutokono/ScoreMD/toy-model/test36-aa/long-run/run/production.extxyz",
+  "source_stride": 1,
+  "source_is_equilibrium": false,
+  "scientific_caveat": "test32 sigma-agnostic displacement denoiser, not a scalar energy or a temperature-conditioned equilibrium score. F=-kBT*dx/sigma_ref^2 is an experimental approximation. No energy/virial, rigid platelets, explicit electrostatics, pressure, shear response or physical kinetics are provided. One model per condition; generation frames are not equilibrium MD data.",
+  "sha256": {
+    "positions.npy": "0f73d5179f7e58aa4bf12c2a6cf33bbcc06369aff177d771ef9940d9ebb8b18d",
+    "cells.npy": "7de0b4d100e61a41d161d5013b1b35b942e3fb8a646e68927398502b80f06602"
+  }
+}

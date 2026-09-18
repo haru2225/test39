@@ -1,0 +1,12 @@
+__pycache__/
+*.pyc
+*.sif
+*.pt
+*.log
+*.o[0-9]*
+results/
+input/test36-dataset/positions.npy
+input/test39-cations/
+input/test39-oxygen-only/
+input/test39/
+.venv/

@@ -1,0 +1,17 @@
+Bootstrap: docker
+From: pytorch/pytorch:2.5.0-cuda12.4-cudnn9-runtime
+
+%post
+    python -m pip install --no-cache-dir \
+        numpy==1.26.4 e3nn==0.4.4 'ase>=3.22,<4' \
+        'scipy>=1.10,<2' 'torch-geometric>=2.5,<3'
+
+%environment
+    export PYTHONUNBUFFERED=1
+    export PYTHONNOUSERSITE=1
+
+%test
+    python -c "import torch, ase, torch_geometric, numpy; torch.serialization.add_safe_globals([slice]); import e3nn; print(torch.__version__, e3nn.__version__)"
+
+%runscript
+    exec python "$@"
