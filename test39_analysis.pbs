@@ -1,0 +1,73 @@
+#!/usr/bin/env bash
+# Snapshot the currently-saved test39 training checkpoint (even mid-training,
+# without stopping run_test39.pbs) and generate one full trajectory from an
+# independent uniform-random configuration in the periodic cell, so the
+# denoising process can be watched as it happens.
+# Usage: qsub -P <ProjectGroup_ID> test39_analysis.pbs
+# Override CG_MODE, CHECKPOINT_PATH, GENERATED_DIR, REVERSE_STEPS as needed.
+#PBS -q sg8
+#PBS -N test39_analysis
+#PBS -l walltime=20:00:00
+#PBS -l select=1:ncpus=8:mpiprocs=1:ompthreads=8:mem=32gb:ngpus=1
+#PBS -j oe
+set -euo pipefail
+
+cd "${PBS_O_WORKDIR:-$(dirname "${BASH_SOURCE[0]}")}"
+work_dir="$(pwd -P)"
+runtime="${CONTAINER_RUNTIME:-singularity}"
+if ! command -v "$runtime" >/dev/null 2>&1 && command -v apptainer >/dev/null 2>&1; then
+    runtime=apptainer
+fi
+command -v "$runtime" >/dev/null 2>&1 || { echo 'Load Singularity or Apptainer.' >&2; exit 2; }
+sif="${SIF_IMAGE:-$work_dir/test39.sif}"
+[[ -r "$sif" ]] || { echo "Missing SIF image: $sif" >&2; exit 2; }
+
+case "${CG_MODE:-cations}" in
+    cations) result_root="$work_dir/results/test39-cations" ;;
+    oxygen-only) result_root="$work_dir/results/test39-oxygen-only" ;;
+    none) result_root="$work_dir/results/test39" ;;
+    *) echo 'CG_MODE must be cations, oxygen-only or none.' >&2; exit 2 ;;
+esac
+checkpoint="${CHECKPOINT_PATH:-${TRAIN_DIR:-$result_root/train}/checkpoint.pt}"
+[[ -r "$checkpoint" ]] || { echo "Missing checkpoint: $checkpoint (train first with run_test39.pbs)" >&2; exit 2; }
+
+# test39 saves checkpoints by atomic tmp-write + rename (see base.save_checkpoint
+# in test38.py), so copying the file here stays consistent even if run_test39.pbs
+# is still training and replaces checkpoint.pt concurrently. Each submission gets
+# its own immutable snapshot and output directory, so training never has to stop
+# and concurrent analysis submissions never collide.
+mkdir -p "$result_root/intermediate"
+run_dir="$(mktemp -d "$result_root/intermediate/run.XXXXXXXX")"
+snapshot="$run_dir/checkpoint.pt"
+cp "$checkpoint" "$snapshot"
+generated="${GENERATED_DIR:-$run_dir/generated}"
+echo "Source checkpoint: $checkpoint"
+echo "Snapshot and results: $run_dir"
+
+bind_args=(--bind "$work_dir:$work_dir")
+if [[ -n "${EXTRA_BIND:-}" ]]; then bind_args+=(--bind "$EXTRA_BIND"); fi
+
+# test39's generate always starts from an independent uniform-random position
+# in the periodic cell (there is no reference/rattled option, unlike test38) --
+# this is the whole point of test39's forward process -- so no extra flag is
+# needed to "start from noise". generate() writes generation.xyz itself (the
+# full step-by-step trajectory, random start -> final structure) whenever it
+# finishes or is interrupted, so no separate export script is required here.
+generation_status=0
+"$runtime" exec --nv "${bind_args[@]}" \
+    --env OMP_NUM_THREADS=8 --env MKL_NUM_THREADS=8 --pwd "$work_dir" \
+    "$sif" python -u "$work_dir/test39.py" generate --checkpoint "$snapshot" \
+    --output "$generated" --device cuda --seed "${SEED:-1337}" \
+    --reverse-steps "${REVERSE_STEPS:-300}" --deterministic-steps "${DETERMINISTIC_STEPS:-1}" \
+    --checkpoint-every "${CHECKPOINT_EVERY:-25}" \
+    --time-budget-hours "${GENERATE_TIME_HOURS:-18}" || generation_status=$?
+if [[ "$generation_status" -ne 0 && "$generation_status" -ne 75 ]]; then
+    echo "Generation failed (exit $generation_status); inspect the job log." >&2
+    exit "$generation_status"
+fi
+echo "Trajectory (uniform-random start -> final, one frame per step): $generated/generation.xyz"
+echo "Final frame: $generated/final.extxyz"
+if [[ "$generation_status" -eq 75 ]]; then
+    echo "Generation paused at the time budget; generation.xyz holds the valid frames so far."
+fi
+exit "$generation_status"
