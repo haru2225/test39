@@ -60,6 +60,8 @@ case "$stage" in
         if [[ -n "${SIGMA_LOG_MEAN:-}" ]]; then args+=(--sigma-log-mean "$SIGMA_LOG_MEAN"); fi
         if [[ -n "${SIGMA_LOG_STD:-}" ]]; then args+=(--sigma-log-std "$SIGMA_LOG_STD"); fi
         if [[ -n "${VALIDATION_FRAMES:-}" ]]; then args+=(--validation-frames "$VALIDATION_FRAMES"); fi
+        if [[ -n "${IRREPS_HIDDEN:-}" ]]; then args+=(--irreps-hidden "$IRREPS_HIDDEN"); fi
+        if [[ -n "${NUM_CONVS:-}" ]]; then args+=(--num-convs "$NUM_CONVS"); fi
         ;;
     generate)
         checkpoint="${CHECKPOINT_PATH:-$train_dir/checkpoint.pt}"

@@ -181,20 +181,23 @@ def write_xyz(output, trajectory, valid, cell, meta):
     temporary.replace(path)
 
 
-def settings_for(args, meta, lengths, sigma_max, num_neighbors=None, sigma_log=None):
+def settings_for(args, meta, lengths, sigma_max, num_neighbors=None, sigma_log=None, capacity=None):
     settings = dict(dataset_sha256=meta["sha256"], sigma_min=args.sigma_min,
                 sigma_max=sigma_max, cutoff=args.cutoff, batch_size=args.batch_size,
                 learning_rate=args.learning_rate, seed=args.seed, device=str(args.device),
                 cell_lengths_A=np.asarray(lengths).tolist())
     # Only recorded when explicitly requested, so a checkpoint trained before
-    # these options existed (default --num-neighbors/--sigma-sampling) resumes
-    # against an identical settings dict -- adding these keys unconditionally
-    # would break --resume for any already-running job.
+    # these options existed (default --num-neighbors/--sigma-sampling/
+    # --irreps-hidden/--num-convs) resumes against an identical settings dict --
+    # adding these keys unconditionally would break --resume for any
+    # already-running job.
     if num_neighbors is not None:
         settings["num_neighbors"] = num_neighbors
     if sigma_log is not None:
         settings["sigma_sampling"] = "log-normal"
         settings["sigma_log_mean"], settings["sigma_log_std"] = sigma_log
+    if capacity is not None:
+        settings["irreps_hidden"], settings["num_convs"] = capacity
     return settings
 
 
@@ -227,6 +230,18 @@ def train(args):
         else:
             num_neighbors_override = float(args.num_neighbors)
         config["num_neighbors"] = num_neighbors_override
+    capacity_override = None
+    if args.irreps_hidden is not None or args.num_convs is not None:
+        # architecture()'s irreps_hidden="64x0e + 32x1e" / num_convs=3 were sized
+        # for test38's local, small-perturbation denoising task. Generating a
+        # whole structure from complete uniform noise is a much harder problem
+        # (see TEST39.md); this network is likely undersized for it regardless
+        # of the sigma-sampling/num-neighbors fixes above. Widening/deepening it
+        # is a first, low-risk capacity increase before considering a different
+        # architecture family entirely.
+        capacity_override = (args.irreps_hidden or config["irreps_hidden"],
+                             args.num_convs or config["num_convs"])
+        config["irreps_hidden"], config["num_convs"] = capacity_override
     sigma_log = None
     if args.sigma_sampling == "log-normal":
         log_mean = (math.log(estimate_sigma_data(positions[0], cells[0], args.cutoff))
@@ -236,7 +251,7 @@ def train(args):
     np.random.seed(args.seed)
     model = base.build_time_model(config, device)
     optimizer = torch.optim.AdamW(model.parameters(), lr=args.learning_rate)
-    settings = settings_for(args, meta, lengths, sigma_max, num_neighbors_override, sigma_log)
+    settings = settings_for(args, meta, lengths, sigma_max, num_neighbors_override, sigma_log, capacity_override)
     completed, history = 0, []
     if args.resume:
         ck = torch.load(path, map_location="cpu", weights_only=False)
@@ -281,6 +296,7 @@ def train(args):
           f"sigma={args.sigma_min:g}..{sigma_max:g} A, "
           f"terminal Fourier residual={residual:.2g}, "
           f"num_neighbors={config['num_neighbors']:g}, "
+          f"irreps_hidden={config['irreps_hidden']!r}, num_convs={config['num_convs']}, "
           f"sigma_sampling={args.sigma_sampling}" +
           (f" (log-mean={sigma_log[0]:.3g}, log-std={sigma_log[1]:.3g})" if sigma_log else ""),
           flush=True)
@@ -459,6 +475,19 @@ def parser():
     train_p.add_argument("--validation-frames", type=base.count, default=8,
                          help="Held-out frames averaged into each logged validation_mse "
                               "(small/middle/terminal), to smooth out single-frame noise")
+    train_p.add_argument("--irreps-hidden", type=str, default=None,
+                         help="Override architecture()'s hardcoded '64x0e + 32x1e' hidden "
+                              "irreps, e.g. '128x0e + 64x1e + 32x2e'. That default was sized "
+                              "for test38's small local denoising task; generating a whole "
+                              "structure from complete uniform noise likely needs more "
+                              "capacity. Default: keep the old value (unchanged, so this does "
+                              "not affect resuming an existing checkpoint)")
+    train_p.add_argument("--num-convs", type=base.count, default=None,
+                         help="Override architecture()'s hardcoded 3 interaction layers, e.g. "
+                              "5 or 6. More layers let more angular/many-body correlation "
+                              "implicitly build up through successive tensor-product mixing "
+                              "(NequIP has no explicit 3-body term). Default: keep the old "
+                              "value 3 (unchanged, does not affect --resume)")
     train_p.set_defaults(handler=train)
     gen_p = sub.add_parser("generate")
     gen_p.add_argument("--checkpoint", type=Path, required=True)
