@@ -249,7 +249,7 @@ def train(args):
         sigma_log = (log_mean, args.sigma_log_std)
     torch.manual_seed(args.seed)
     np.random.seed(args.seed)
-    model = base.build_time_model(config, device)
+    model = base.build_time_model(config, device, args.gradient_checkpointing)
     optimizer = torch.optim.AdamW(model.parameters(), lr=args.learning_rate)
     settings = settings_for(args, meta, lengths, sigma_max, num_neighbors_override, sigma_log, capacity_override)
     completed, history = 0, []
@@ -488,6 +488,13 @@ def parser():
                               "implicitly build up through successive tensor-product mixing "
                               "(NequIP has no explicit 3-body term). Default: keep the old "
                               "value 3 (unchanged, does not affect --resume)")
+    train_p.add_argument("--gradient-checkpointing", action=argparse.BooleanOptionalAction, default=True,
+                         help="Recompute each Interaction+Gate layer's forward during backward "
+                              "instead of keeping it in memory, to reduce peak GPU memory (no "
+                              "effect on the model's output, capacity or saved weights -- only a "
+                              "compute/memory tradeoff). Default on, since the widened/l=5 "
+                              "architecture can otherwise hit CUDA out-of-memory; pass "
+                              "--no-gradient-checkpointing to disable")
     train_p.set_defaults(handler=train)
     gen_p = sub.add_parser("generate")
     gen_p.add_argument("--checkpoint", type=Path, required=True)

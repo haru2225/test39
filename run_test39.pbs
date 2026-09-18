@@ -62,6 +62,14 @@ case "$stage" in
         if [[ -n "${VALIDATION_FRAMES:-}" ]]; then args+=(--validation-frames "$VALIDATION_FRAMES"); fi
         if [[ -n "${IRREPS_HIDDEN:-}" ]]; then args+=(--irreps-hidden "$IRREPS_HIDDEN"); fi
         if [[ -n "${NUM_CONVS:-}" ]]; then args+=(--num-convs "$NUM_CONVS"); fi
+        # Default on (test39.py's own default); set GRADIENT_CHECKPOINTING=0 to
+        # disable if GPU memory is not a concern and the recompute overhead isn't wanted.
+        case "${GRADIENT_CHECKPOINTING:-}" in
+            0) args+=(--no-gradient-checkpointing) ;;
+            1) args+=(--gradient-checkpointing) ;;
+            "") ;;
+            *) echo 'GRADIENT_CHECKPOINTING must be 0 or 1.' >&2; exit 2 ;;
+        esac
         ;;
     generate)
         checkpoint="${CHECKPOINT_PATH:-$train_dir/checkpoint.pt}"

@@ -46,26 +46,33 @@ SiO4/AlO6の重心への置換や共有酸素の質量配分は行いません�
   大きかったため、既定で複数フレームの平均に変更しました。こちらは
   チェックポイントの`settings`に影響しないため、`--resume`の互換性には
   影響しません。
-- **`--irreps-hidden`/`--num-convs`**: 既定の`64x0e + 32x1e`・3層という
-  構成は、test38の「参照構造にわずかなノイズを加えたところから戻す」
-  局所デノイザー用に作られたものです。test39が要求する「セル内で完全に
-  ランダムな配置から周期的な結晶格子を再構築する」というタスクは、
-  はるかに難しい生成問題であり、この規模のネットワークでは表現力が
-  足りていない可能性が高いです。`--irreps-hidden "128x0e + 64x1e + 32x2e"`
-  のように広く、`--num-convs 5`のように深くすることで、まずネットワーク
-  容量を増やしてみるのが最初の低リスクな対策です(NequIPには明示的な
-  3体項(結合角の情報)がなく、角度的な相関は層を重ねるほど間接的に
-  獲得されるため、層を増やすこと自体にも意味があります)。
+- **`--irreps-hidden`/`--num-convs`**: `architecture()`の既定値は現在
+  `irreps_hidden="128x0e + 64x1e + 32x2e + 16x3e + 8x4e + 4x5e"`(l=5まで
+  拡張)・`num_convs=3`です(旧: `64x0e + 32x1e`・3層)。この粘土鉱物の
+  主要な配位構造であるSi四面体(Td対称性、最初の非自明な多重極項はl=3)
+  とAl/Mg八面体(Oh対称性、最初の非自明な多重極項はl=4)を、エッジの
+  球面調和展開だけで直接表現できるようにするための拡張です。これらの
+  フラグはこの既定値をさらに上書きしたい場合に使います。
+- **`--gradient-checkpointing`(既定on)**: 上記の容量増強・l=5拡張により
+  GPUメモリ使用量が大きく増え、CUDA out of memoryが発生することを確認
+  しました。各Interaction+Gate層の順伝播結果をメモリに保持せず、
+  backward時に再計算することでピークメモリを削減します(再計算コストは
+  増えますが、モデルの出力・精度は完全に同一であることを検証済みです)。
+  メモリに余裕がある環境で再計算コストを避けたい場合は
+  `--no-gradient-checkpointing`で無効化できます。
 
 これらは新規学習でのみ有効にしてください。既存のチェックポイントを
 `--num-neighbors`・`--sigma-sampling`・`--irreps-hidden`・`--num-convs`を
 変えて再開しようとすると、設定が一致しないため明示的にエラーになります
-(黙って壊れた状態にはなりません)。
+(黙って壊れた状態にはなりません)。`--gradient-checkpointing`は出力に
+影響しないため、`--resume`の互換性には影響しません。
 
 ```bash
 qsub -P <ProjectGroup_ID> \
-  -v NUM_NEIGHBORS=auto,SIGMA_SAMPLING=log-normal,IRREPS_HIDDEN="128x0e + 64x1e + 32x2e",NUM_CONVS=5 \
+  -v NUM_NEIGHBORS=auto,SIGMA_SAMPLING=log-normal \
   run_test39.pbs
+# GPUメモリに余裕があり再計算コストを避けたい場合
+qsub -P <ProjectGroup_ID> -v GRADIENT_CHECKPOINTING=0 run_test39.pbs
 ```
 
 ## スパコンで実行(PBS)

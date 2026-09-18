@@ -96,6 +96,7 @@ from ase.neighborlist import primitive_neighbor_list
 from e3nn import o3
 from e3nn.nn import FullyConnectedNet, Gate
 from torch import nn
+from torch.utils.checkpoint import checkpoint as torch_checkpoint
 from torch_geometric.data import Batch, Data
 from torch_geometric.transforms import BaseTransform
 from torch_geometric.utils import scatter
@@ -537,6 +538,12 @@ class NequIP_TimeEmbed(nn.Module):
         t_embed_dim = self.t_embed.layer2.out_features
         self.t_projection = nn.Linear(t_embed_dim, irreps.dim)
 
+        # 各Interaction+Gate層の順伝播結果をbackward用に保持せず、backward時に
+        # 再計算することでピークGPUメモリを削減する(勾配チェックポイント)。
+        # forward/backwardの計算結果自体は変わらない(再計算コストは増える)ので、
+        # モデルの表現力・出力・保存済みチェックポイントとの互換性には一切影響しない。
+        self.gradient_checkpointing = False
+
     def forward(self, data, t):
         data = self.init_embed(data)
         edge_index, edge_attr = data.edge_index, data.edge_attr
@@ -553,7 +560,17 @@ class NequIP_TimeEmbed(nn.Module):
         # 毎層h_node_tを足し込むことでsigma情報を伝え続ける。
         edge_sh = o3.spherical_harmonics(self.irreps_edge, edge_attr, normalize=True, normalization='component')
         for layer in self.interactions:
-            h_node_x = layer(h_node_x, h_node_z, edge_index, edge_sh, h_edge)
+            if self.gradient_checkpointing and self.training and h_node_x.requires_grad:
+                # 順伝播の途中結果(特にl=5まで拡張したテンソル積の中間テンソル)を
+                # メモリに保持せず、backward時に再計算する。数値的な結果は
+                # checkpointingなしと完全に同一(再計算コストとのトレードオフ)。
+                # use_reentrant=False(新方式)はe3nnのTorchScriptコード生成箇所と
+                # 衝突してRuntimeErrorになったため、再計算結果を実測で照合した
+                # use_reentrant=True(旧方式)を使う。
+                h_node_x = torch_checkpoint(layer, h_node_x, h_node_z, edge_index, edge_sh, h_edge,
+                                            use_reentrant=True)
+            else:
+                h_node_x = layer(h_node_x, h_node_z, edge_index, edge_sh, h_edge)
             h_node_x = h_node_x + h_node_t
 
         # 最終的に3次元ベクトル(irreps_out='1x1e')、つまり各原子の変位予測dxを出力する。
@@ -626,13 +643,14 @@ class RattleParticles(BaseTransform):
 
 # --- test38-specific code -------------------------------------------------------------
 
-def build_time_model(config: dict, device: torch.device) -> nn.Module:
+def build_time_model(config: dict, device: torch.device, gradient_checkpointing: bool = False) -> nn.Module:
     # architecture()で作った構成辞書からNequIP_TimeEmbedモデルを組み立てる。
     values = {k: v for k, v in config.items() if k not in ("num_species", "cutoff_angstrom")}
     model = NequIP_TimeEmbed(
         init_embed=InitialEmbedding(config["num_species"], config["cutoff_angstrom"]),
         **values,
     )
+    model.gradient_checkpointing = gradient_checkpointing
     return model.to(device)
 
 
@@ -703,7 +721,7 @@ def train(args):
     config = architecture(len(meta["species"]), args.cutoff)
     torch.manual_seed(args.seed)
     np.random.seed(args.seed)
-    model = build_time_model(config, device)
+    model = build_time_model(config, device, args.gradient_checkpointing)
     if not args.resume and args.warm_start is not None:
         # test37/36で学習済みのplainチェックポイントからウォームスタートする場合。
         # アーキテクチャ(species数・cutoffなど)が一致していることを確認してから、
@@ -952,6 +970,12 @@ def parser():
     p.add_argument("--sigma-max", type=positive, default=0.75)  # 学習時に使うノイズ幅の上限(生成時のt正規化にも使われる)
     p.add_argument("--validation-fraction", type=positive, default=0.1)
     p.add_argument("--log-every", type=count, default=100)
+    p.add_argument("--gradient-checkpointing", action=argparse.BooleanOptionalAction, default=True,
+                   help="Recompute each Interaction+Gate layer's forward during backward instead "
+                        "of keeping it in memory, to reduce peak GPU memory (no effect on the "
+                        "model's output, capacity or saved weights -- only a compute/memory "
+                        "tradeoff). Default on, since the current architecture size can otherwise "
+                        "hit CUDA out-of-memory; pass --no-gradient-checkpointing to disable")
     p.set_defaults(handler=train)
 
     p = sub.add_parser("generate", help="annealed-Langevin / variance-exploding reverse-SDE sampler with a DDIM polish tail")
