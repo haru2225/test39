@@ -257,12 +257,20 @@ def architecture(num_species, cutoff):
     # デノイザー用の規模で、test39が要求する「セル内で完全にランダムな配置
     # から周期的な結晶格子を再構築する」というはるかに難しい生成タスクには
     # 小さすぎると判断し、モデルクラス(NequIP)自体は変えずに容量だけを
-    # 増やした。NequIPには明示的な3体項(結合角)がなく、角度的な相関は層を
-    # 重ねるほど間接的に獲得されるため、層を増やすこと自体にも意味がある。
+    # 増やした。
+    #
+    # l_max=5まで拡張しているのは、この粘土鉱物の主要な配位構造(Si四面体
+    # (Td対称性、最初の非自明な多重極項はl=3)、Al/Mg八面体(Oh対称性、
+    # 最初の非自明な多重極項はl=4))を、エッジの球面調和展開だけで直接
+    # 表現できるようにするため。l=2までしかないと、これらの配位構造は
+    # 複数層のテンソル積を重ねて間接的にしか再構成できない。num_convsは
+    # その分、間接的な多体相関の再構成に頼らなくてよくなった分だけ3層に
+    # 戻している。
     return dict(num_species=num_species, cutoff_angstrom=cutoff,
                 irreps_node_x="8x0e", irreps_node_z="8x0e",
-                irreps_hidden="128x0e + 64x1e + 32x2e", irreps_edge="4x0e + 4x1e + 2x2e",
-                irreps_out="1x1e", num_convs=5, radial_neurons=[16, 64], num_neighbors=12)
+                irreps_hidden="128x0e + 64x1e + 32x2e + 16x3e + 8x4e + 4x5e",
+                irreps_edge="4x0e + 4x1e + 4x2e + 2x3e + 2x4e + 1x5e",
+                irreps_out="1x1e", num_convs=3, radial_neurons=[16, 64], num_neighbors=12)
 
 
 def graph(positions, cell, type_ids, cutoff, device):
