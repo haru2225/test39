@@ -335,7 +335,18 @@ def train(args):
                                  ("terminal", sigma_max)):
                     # Averaged over several held-out frames so a single-frame
                     # fluke doesn't read as a real change in model quality.
-                    diagnostics[label] = float(loss_for(validation_indices, min(s, sigma_max)).item())
+                    # Evaluated one frame at a time (not batched together):
+                    # batching all --validation-frames into a single forward
+                    # pass made this diagnostic step need a much bigger batch,
+                    # and therefore much more peak GPU memory, than an
+                    # ordinary training step -- gradient checkpointing does
+                    # not help here since eval() has no backward pass to
+                    # recompute for. Every frame has the same atom count, so
+                    # this mean-of-means equals the pooled MSE the batched
+                    # version computed, just without the memory spike.
+                    sigma_level = min(s, sigma_max)
+                    frame_losses = [loss_for([i], sigma_level).item() for i in validation_indices]
+                    diagnostics[label] = float(np.mean(frame_losses))
             base.restore_rng(saved_rng)
             row = dict(step=step, train_mse=float(loss.detach().cpu()),
                        sigma_A=sigma, validation_mse=diagnostics)
